@@ -21,6 +21,8 @@
 			
 			<input type="email" name="epost" placeholder="E-post">
 			
+			<select>
+				<option>
 			<input type="text" name="del" placeholder="Delsträcka"><!--dropdown-->
 		
 			<!-- dropdown för val av problem,
