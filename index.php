@@ -22,7 +22,9 @@
 			<input type="email" name="epost" placeholder="E-post">
 			
 			<select>
-				<option>
+				<option value="hedemora">Hedemora-Norrhyttan</option>
+				<option value="norrhyttan">
+			</select>
 			<input type="text" name="del" placeholder="Delsträcka"><!--dropdown-->
 		
 			<!-- dropdown för val av problem,
