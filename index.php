@@ -22,11 +22,7 @@
 			<input type="email" name="epost" placeholder="E-post">
 			
 			<select>
-<<<<<<< HEAD
-				<option value="hedemora">fuck you</option>
-=======
-				<option value="hedemora">Hedemora-jdkasdn</option>
->>>>>>> master
+				<option value="hedemora">Hedemora-Norrhyttan</option>
 				<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
 				<option value="bondhyttan">Bondhyttan-Bommansbo</option>
 				<option value="bommansbo">Bommansbo-Smedjebacken</option>
