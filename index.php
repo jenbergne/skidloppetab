@@ -23,7 +23,11 @@
 			
 			<select>
 				<option value="hedemora">Hedemora-Norrhyttan</option>
-				<option value="norrhyttan">
+				<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
+				<option value="bondhyttan">Bondhyttan-Bommansbo</option>
+				<option value="bommansbo">Bommansbo-Smedjebacken</option>
+				<option value="smedjebacken">Smedjebacken-Björsjö</option>
+				<option value="björsjö">Björsjö-Grängesberg</option>
 			</select>
 			<input type="text" name="del" placeholder="Delsträcka"><!--dropdown-->
 		
