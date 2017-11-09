@@ -22,7 +22,7 @@
 			<input type="email" name="epost" placeholder="E-post">
 			
 			<select>
-				<option value="hedemora">Hedemora-Norrhyttan</option>
+				<option value="hedemora">Hedemora-jdkasdn</option>
 				<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
 				<option value="bondhyttan">Bondhyttan-Bommansbo</option>
 				<option value="bommansbo">Bommansbo-Smedjebacken</option>
