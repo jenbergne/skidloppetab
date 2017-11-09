@@ -14,14 +14,16 @@
     <h3>Ny arbetsorder</h3>
     
     		<form action="kontakt.php" method="post">
+				
+			<input type="tel" name="del"  placeholder="Delsträcka"> <!-- dropdown -->
 
-			<input type="text" name="underent" placeholder="Underentreprenör">
+			<input type="text" name="underent" placeholder="Underentreprenör"> <!-- laddas in automatiskt beroende på delsträcka, dropdown -->
 			
-			<input type="tel" name="del"  placeholder="Delsträcka">
+			<!-- en dropdown för problem??? --> 
             
             Akut?<input type="checkbox" name="akut"> 
 			
-			<input type="date" name="start" placeholder="Startdatum">
+			<input type="date" name="start" placeholder="Startdatum"> <!-- date???? -->
 			
 			<input type="date" name="slut" placeholder="Slutdatum">
 			

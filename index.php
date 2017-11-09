@@ -3,13 +3,13 @@
 <main id="start">
     <h1>Skidloppet AB </h1>
     
-    <h2>Idag öppet: </h2> <!-- ej med i kravspec? bilder? -->
-    
     <img src="images/BilderKartor3.jpg" alt="Karta">
 	<!-- dynamisk bilder, hovereffekt över delsträckor med väderprognos, om spåret är öppet, kommentarer osv? 
 	eller ska det ändras på kartan färger direkt (flera bilder till en bildmap?) Väder ovanpå som bild? 
 	dynamiskt - animationer? eller enbart bilder som ändras? 
 	-->
+	
+	<!-- tabell problem -->
     
     <h2>Rapportera problem</h2> <!-- hänvisning till kontaktsida, egen? Ej någon klientsida/serversida kontroll formulär, måste!!-->
     
@@ -17,11 +17,15 @@
 
 			<input type="text" name="namn" placeholder="Namn">
 			
-			<input type="tel" name="nummer"  placeholder="Telefonnummer">
+			<!--<input type="tel" name="nummer"  placeholder="Telefonnummer">-->
 			
 			<input type="email" name="epost" placeholder="E-post">
 			
-			<input type="text" name="del" placeholder="Delsträcka">
+			<input type="text" name="del" placeholder="Delsträcka"><!--dropdown-->
+		
+			<!-- dropdown för val av problem,
+			annat (kolla så meddelande fylls i) -->
+			<!-- hårdkodat först, sen databas?? --> 
 			
 			<textarea name="comment" placeholder="Meddelande"></textarea><br>
 			<button class="knapp" type="submit">
@@ -32,7 +36,7 @@
         
         <h2>Nyheter</h2>
        
-    
+		<?php test(); ?>
     
     
     

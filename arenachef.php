@@ -31,7 +31,8 @@
     
 	<h2>Uppdatera karta</h2>
 	 <img src="images/BilderKartor3.jpg" alt="Karta">
-	<!-- bild på karta med klick? --> 
+	<!-- bild på karta med klick? -->
+	<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
 	
 	
     <h2>Inskickade åtgärdspunkter</h2>
@@ -41,7 +42,7 @@
 <?php include 'arbetsorder.php';?>
 
 	
-	 <h2>Statistik</h2>
+	 <h2>Statistik / Historik</h2>
     
     <h2>Väderprognos</h2>
     

@@ -10,6 +10,8 @@
 	<link href="lightbox2-master/src/css/lightbox.css" rel="stylesheet">
 </head>
 
+<?php include 'functions.php' ?>
+
 <!-- Funktioner:
 - Databaskoppling
 - Inloggningsfunktion 

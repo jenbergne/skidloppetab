@@ -4,8 +4,12 @@
     <h1>Vy för Underentreprenör</h1>
     
 	<h2>Arbetsordrar</h2>
-	<h3>Pågående arbetsordrar</h3>
+	<h3>Pågående arbetsordrar</h3
+	
+	<!-- tabell --> 
 	<h3>Förfrågningar </h3>
+	
+	<h3>Uppdatera färdig arbetsorder</h3>
 	
     <h2>Anmäl tillgänglighet</h2>
 
