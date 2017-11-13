@@ -2,7 +2,7 @@
 
 <main id="start">
     <h1>Skidloppet AB </h1>
-    asd
+    
     <img src="images/BilderKartor3.jpg" alt="Karta">
 	<!-- dynamisk bilder, hovereffekt över delsträckor med väderprognos, om spåret är öppet, kommentarer osv? 
 	eller ska det ändras på kartan färger direkt (flera bilder till en bildmap?) Väder ovanpå som bild? 
