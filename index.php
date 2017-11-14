@@ -2,7 +2,7 @@
 
 <main id="start">
     <h1>Skidloppet AB </h1>
-   
+    
     <img src="images/BilderKartor3.jpg" alt="Karta">
 	<!-- dynamisk bilder, hovereffekt över delsträckor med väderprognos, om spåret är öppet, kommentarer osv? 
 	eller ska det ändras på kartan färger direkt (flera bilder till en bildmap?) Väder ovanpå som bild? 
@@ -13,53 +13,40 @@
     
     <h2>Rapportera problem</h2> <!-- hänvisning till kontaktsida, egen? Ej någon klientsida/serversida kontroll formulär, måste!!-->
     
-    	<form action="kontakt.php" method="post">
+    	<form action="index.php" method="post">   <!-- Stämmer detta Jennifer? skicka till index -->
 
-			<input type="text" name="namn" placeholder="Namn">
+			<input type="text" name="rName" placeholder="Namn">
 			
 			<!--<input type="tel" name="nummer"  placeholder="Telefonnummer">-->
 			
-			<input type="email" name="epost" placeholder="E-post">
+			<input type="email" name="rMail" placeholder="E-post">
 			
-			
-			<div id="sträcka">
-				<select>
-					<option value="" disabled selected>Välj delsträcka</option>
-					<option value="hedemora">Hedemora-Norrhyttan</option>
-					<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
-					<option value="bondhyttan">Bondhyttan-Bommansbo</option>
-					<option value="bommansbo">Bommansbo-Smedjebacken</option>
-					<option value="smedjebacken">Smedjebacken-Björsjö</option>
-					<option value="björsjö">Björsjö-Grängesberg</option>
-				</select>
-			</div>
-			
-			<div id="problem">
-				<select>
-					<option value="" disabled selected>Välj problem</option>
-					<option value="träd">Nedfallet träd</option>
-					<option value="placeholder1">Placeholder1</option>
-					<option value="placeholder2">Placeholder2</option>
-					<option value="placeholder3">Placeholder3</option>
-					<option value="övrigt">Övrigt</option>
-				</select>
-			</div>
-			
+			<select>
+				<option value="hedemora">Hedemora-Norrhyttan</option>
+				<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
+				<option value="bondhyttan">Bondhyttan-Bommansbo</option>
+				<option value="bommansbo">Bommansbo-Smedjebacken</option>
+				<option value="smedjebacken">Smedjebacken-Björsjö</option>
+				<option value="björsjö">Björsjö-Grängesberg</option>
+			</select>
+			<input type="text" name="del" placeholder="Delsträcka"><!--dropdown-->
 		
 			<!-- dropdown för val av problem,
 			annat (kolla så meddelande fylls i) -->
 			<!-- hårdkodat först, sen databas?? --> 
 			
-			<textarea name="comment" placeholder="Meddelande"></textarea><br>
+			<textarea name="descr" placeholder="Meddelande"></textarea><br>
 			<button class="knapp" type="submit">
 				SKICKA 
 			  </button>
 
 		</form>
-        
+		
+        <?php AU_Problem($rMail, $rName, $descr, $probChoice); ?>
+		
         <h2>Nyheter</h2>
        
-		<?php test(); ?>
+		
 		
     
     
