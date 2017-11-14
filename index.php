@@ -11,9 +11,9 @@
 	
 	<!-- tabell problem -->
     
-    <h2>Rapportera problem hehehehheeh</h2> <!-- hänvisning till kontaktsida, egen? Ej någon klientsida/serversida kontroll formulär, måste!!-->
+    <h2>Rapportera problem</h2> <!-- hänvisning till kontaktsida, egen? Ej någon klientsida/serversida kontroll formulär, måste!!-->
     
-    	<form action="index.php" method="post">   <!-- Stämmer detta Jennifer? skicka till index -->
+    	<form action="index.php" method="post">   
 
 			<input type="text" name="rName" placeholder="Namn">
 			
@@ -55,11 +55,10 @@
 		</form>
 		
         <?php
-		$rMail = $_POST[rMail];
-		echo $rMail;
-		
-		
-		AU_Problem($rMail, $rName, $descr, $probChoice); ?>
+			include 'functions.php';
+			
+			AU_Problem($rMail, $rName, $descr, $probChoice); 
+		?>
 		
         <h2>Nyheter</h2>
        
