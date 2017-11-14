@@ -21,7 +21,7 @@
 			
 			<input type="email" name="epost" placeholder="E-post">
 			
-			<!-- funkar ej styla?? -->
+			
 			<div id="sträcka">
 				<select>
 					<option value="" disabled selected>Välj delsträcka</option>
@@ -44,7 +44,7 @@
 					<option value="övrigt">Övrigt</option>
 				</select>
 			</div>
-			<!--dropdown-->
+			
 		
 			<!-- dropdown för val av problem,
 			annat (kolla så meddelande fylls i) -->
