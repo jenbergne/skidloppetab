@@ -2,7 +2,7 @@
 
 <main id="start">
     <h1>Skidloppet AB </h1>
-    
+   
     <img src="images/BilderKartor3.jpg" alt="Karta">
 	<!-- dynamisk bilder, hovereffekt över delsträckor med väderprognos, om spåret är öppet, kommentarer osv? 
 	eller ska det ändras på kartan färger direkt (flera bilder till en bildmap?) Väder ovanpå som bild? 
@@ -21,15 +21,30 @@
 			
 			<input type="email" name="epost" placeholder="E-post">
 			
-			<select>
-				<option value="hedemora">Hedemora-Norrhyttan</option>
-				<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
-				<option value="bondhyttan">Bondhyttan-Bommansbo</option>
-				<option value="bommansbo">Bommansbo-Smedjebacken</option>
-				<option value="smedjebacken">Smedjebacken-Björsjö</option>
-				<option value="björsjö">Björsjö-Grängesberg</option>
-			</select>
-			<input type="text" name="del" placeholder="Delsträcka"><!--dropdown-->
+			<!-- funkar ej styla?? -->
+			<div id="sträcka">
+				<select>
+					<option value="" disabled selected>Välj delsträcka</option>
+					<option value="hedemora">Hedemora-Norrhyttan</option>
+					<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
+					<option value="bondhyttan">Bondhyttan-Bommansbo</option>
+					<option value="bommansbo">Bommansbo-Smedjebacken</option>
+					<option value="smedjebacken">Smedjebacken-Björsjö</option>
+					<option value="björsjö">Björsjö-Grängesberg</option>
+				</select>
+			</div>
+			
+			<div id="problem">
+				<select>
+					<option value="" disabled selected>Välj problem</option>
+					<option value="träd">Nedfallet träd</option>
+					<option value="placeholder1">Placeholder1</option>
+					<option value="placeholder2">Placeholder2</option>
+					<option value="placeholder3">Placeholder3</option>
+					<option value="övrigt">Övrigt</option>
+				</select>
+			</div>
+			<!--dropdown-->
 		
 			<!-- dropdown för val av problem,
 			annat (kolla så meddelande fylls i) -->
