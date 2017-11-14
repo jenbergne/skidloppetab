@@ -17,10 +17,11 @@
 
 			<input type="text" name="rName" placeholder="Namn">
 			
-			<!--<input type="tel" name="nummer"  placeholder="Telefonnummer">-->
 			
 			<input type="email" name="rMail" placeholder="E-post">
-			<div id="sträcka">
+			
+			
+			<div id="stracka">
 				<select>
 					<option value="" disabled selected>Välj delsträcka</option>
 					<option value="hedemora">Hedemora-Norrhyttan</option>
@@ -28,18 +29,18 @@
 					<option value="bondhyttan">Bondhyttan-Bommansbo</option>
 					<option value="bommansbo">Bommansbo-Smedjebacken</option>
 					<option value="smedjebacken">Smedjebacken-Björsjö</option>
-					<option value="björsjö">Björsjö-Grängesberg</option>
+					<option value="bjorsjo">Björsjö-Grängesberg</option>
 				</select>
 			</div>
 		
 			<div id="problem">
 				<select>
 					<option value="" disabled selected>Välj problem</option>
-					<option value="träd">Nedfallet träd</option>
+					<option value="tree">Nedfallet träd</option>
 					<option value="placeholder1">Placeholder1</option>
 					<option value="placeholder2">Placeholder2</option>
 					<option value="placeholder3">Placeholder3</option>
-					<option value="övrigt">Övrigt</option>
+					<option value="ovrigt">Övrigt</option>
 				</select>
 			</div>
 			
