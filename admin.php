@@ -11,17 +11,17 @@
             <input type="text" name="password" placeholder="Lösenord">
             
 			<button class="knapp" type="submit">
-				SKICKA 
+				LOGGA IN 
 			  </button>
 
 		</form>
     
     <br><br><br>
     
-    Se vyer:      
+    Se vyer utan inlogg:      
     <a href="arenachef.php">Arenachef</a>
     <a href="underent.php">Underentreprenör</a>
-    <a href="vd.php">VD</a>
+    <!--<a href="vd.php">VD</a>-->
     
 
 </main>

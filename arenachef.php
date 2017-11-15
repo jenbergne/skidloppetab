@@ -3,15 +3,71 @@
 <main id="start">
     <h1>Vy för Arenachef</h1>
 	
-	<!-- olika flikar/sidor, nu allt på samma -> sen horisontellt. -->
-    
-    <h2>Uppdatera nyhetsflöde</h2>
-    Formulär för att delge info till AN <!--(under flik - delge info?)-->
-	
-	<!-- snabbknappar med olika info? 
-	Öppna/stäng delsträcka osv. 
-	--> 
-	<!-- ska karta automatiskt uppdateras? val att uppdatera karta? --> 
+	<div id="left">
+		
+		 <img src="images/BilderKartor3.jpg" alt="Karta" id="kartaindex">
+		<!-- bild på karta med klick? -->
+		<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
+		
+		  <h2>Inskickade åtgärdspunkter</h2>
+
+   <!-- Ny arbetsorder med info redan ifylld från inskickad åtgärdspunkt? -->
+		
+		<table id="tabellstracka">
+			<tr>
+				<th>
+					<select class="scroll">
+						<option>Sträcka</option>
+						<option>Hedemora-Norrhyttan</option>
+						<option>Norrhyttan-Bondhyttan</option>
+					</select>
+				</th>
+				<th>Problem</th>
+				<th>Meddelande</th>
+				<th>Namn</th>
+				<th>E-post</th>
+				<th>Radera</th>
+			</tr>
+			<tr>
+				<td>Hedemora-Norrhyttan</td>
+				<td>Nedfallet träd</td>
+				<td>Ett fallet träd vid sträckans start.</td>
+				<td>Anna Andersson</td>
+				<td>exempelmail@exempel.com</td>
+				<td><button class="minbutton">Radera</button></td>
+			</tr>
+			<tr>
+				<td>Hedemora-Norrhyttan</td>
+				<td>Nedfallet träd</td>
+				<td>Ett fallet träd vid sträckans start.</td>
+				<td>Anna Andersson</td>
+				<td>exempelmail@exempel.com</td>
+				<td><button class="minbutton">Radera</button></td>
+			</tr>
+			<tr>
+				<td>Hedemora-Norrhyttan</td>
+				<td>Nedfallet träd</td>
+				<td>Ett fallet träd vid sträckans start.</td>
+				<td>Anna Andersson</td>
+				<td>exempelmail@exempel.com</td>
+				<td><button class="minbutton">Radera</button></td>
+			</tr>
+		</table>
+		
+	</div>
+	<div id="right">
+		<?php include 'arbetsorder.php';?>
+	</div>
+	<div id="clear"></div>
+	<div id="left">
+		    
+		<h2>Uppdatera nyhetsflöde</h2>
+		 <!--(under flik - delge info?)-->
+		
+		<!-- snabbknappar med olika info? 
+		Öppna/stäng delsträcka osv. 
+		--> 
+		<!-- ska karta automatiskt uppdateras? val att uppdatera karta? --> 
 	    <form action="kontakt.php" method="post">
 
 			<input type="text" name="rubrik" placeholder="Rubrik">
@@ -28,23 +84,46 @@
 			  </button>
 
 		</form>
-    
-	<h2>Uppdatera karta</h2>
-	 <img src="images/BilderKartor3.jpg" alt="Karta">
-	<!-- bild på karta med klick? -->
-	<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
+	</div>
+	<div id="right">
 	
-	
-    <h2>Inskickade åtgärdspunkter</h2>
+		<h2>Öppna/stäng delsträckor</h2>
+			<form action="kontakt.php" method="post">
+				
+				<input type="tel" name="del"  placeholder="Delsträcka"> <!-- dropdown/klick på karta -->
+				
+				<input type="date" name="start" placeholder="Startdatum">
+				
+				<input type="date" name="slut" placeholder="Slutdatum">
+				
+				<textarea name="comment" placeholder="Information"></textarea><br>
+				<button class="knapp" type="submit">
+					SKICKA 
+				</button>
 
-   <!-- Ny arbetsorder med info redan ifylld från inskickad åtgärdspunkt? -->
-    
-<?php include 'arbetsorder.php';?>
+			</form>
+			
+		<!-- <h2>Uppdatera karta</h2>
+		 <img src="images/BilderKartor3.jpg" alt="Karta" id="kartaindex" > -->
+		<!-- bild på karta med klick? -->
+		<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
+		
+	</div>
+	<div id="clear"></div>
 
-	
-	 <h2>Statistik / Historik</h2>
-    
-    <h2>Väderprognos</h2>
+		
+	<!-- olika flikar/sidor, nu allt på samma -> sen horisontellt. -->
+
+   <!--<h2>Statistik</h2>-->
+   <div id="left">
+	<h2>Historik</h2>
+	<img src="images/kalender.png" alt="kalender" id="kalender"/>
+   </div>
+   <div id="right">
+   <?php include 'arenachefue.php';?>
+   </div>
+   <div id="clear"></div>
+  <!--  <h2>Väderprognos</h2>-->
     
 </main>
 

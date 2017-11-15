@@ -2,57 +2,113 @@
 
 <main id="start">
     <h1>Skidloppet AB </h1>
-    qwe
-    <img src="images/BilderKartor3.jpg" alt="Karta">
-	<!-- dynamisk bilder, hovereffekt över delsträckor med väderprognos, om spåret är öppet, kommentarer osv? 
-	eller ska det ändras på kartan färger direkt (flera bilder till en bildmap?) Väder ovanpå som bild? 
-	dynamiskt - animationer? eller enbart bilder som ändras? 
-	-->
+    
+	<div id="left">
+		<img src="images/BilderKartor3.jpg" alt="Karta" id="kartaindex">
+		<!-- dynamisk bilder, hovereffekt över delsträckor med väderprognos, om spåret är öppet, kommentarer osv? 
+		eller ska det ändras på kartan färger direkt (flera bilder till en bildmap?) Väder ovanpå som bild? 
+		dynamiskt - animationer? eller enbart bilder som ändras? 
+		-->
+		
+		<table id="tabellstracka">
+			<tr>
+				<th>Sträcka</th>
+				<th>Status</th>
+				<th>Öppnas åter</th>
+				<th>Information</th>	
+			</tr>
+			<tr>
+				<td>Hedemora-Norrhyttan</td>
+				<td>Stängd</td>
+				<td>2017-02-02</td>
+				<td>Fallna träd</td>
+			</tr>
+			<tr>
+				<td>Norrhyttan-Bondhyttan</td>
+				<td>Öppen</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+	</div>
 	
+	<div id="nyheter">
+		<h2>Nyheter</h2>
+		<table id="tabellnyheter">
+			<tr>
+			<th>Tävling</th>
+			</tr>
+			<tr>
+			<td>2017-11-15 - 2017-11-20</td>
+			</tr>
+			<tr>
+				<td>
+					Tävling pågår. 
+				</td>
+			</tr>
+		</table>
+	</div>
+    
+	<div id="clear"></div>
 	<!-- tabell problem -->
-    
-    <h2>Rapportera problem</h2> <!-- hänvisning till kontaktsida, egen? Ej någon klientsida/serversida kontroll formulär, måste!!-->
-    
-    	<form action="kontakt.php" method="post">
-
-			<input type="text" name="namn" placeholder="Namn">
-			
-			<!--<input type="tel" name="nummer"  placeholder="Telefonnummer">-->
-			
-			<input type="email" name="epost" placeholder="E-post">
-			
-			<select>
-				<option value="hedemora">Hedemora-Norrhyttan</option>
-				<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
-				<option value="bondhyttan">Bondhyttan-Bommansbo</option>
-				<option value="bommansbo">Bommansbo-Smedjebacken</option>
-				<option value="smedjebacken">Smedjebacken-Björsjö</option>
-				<option value="björsjö">Björsjö-Grängesberg</option>
-			</select>
-			<input type="text" name="del" placeholder="Delsträcka"><!--dropdown-->
+    <div id="rapporteraproblem">
+		<h2>Rapportera problem</h2> <!-- hänvisning till kontaktsida, egen? Ej någon klientsida/serversida kontroll formulär, måste!!-->
 		
-			<!-- dropdown för val av problem,
-			annat (kolla så meddelande fylls i) -->
-			<!-- hårdkodat först, sen databas?? --> 
+			<form action="index.php" method="post">   
+	
+				<input type="text" name="rName" placeholder="Namn">
+				
+				
+				<input type="email" name="rMail" placeholder="E-post">
+				
+				
+				<div id="stracka">
+					<select>
+						<option value="" disabled selected>Välj delsträcka</option>
+						<option value="hedemora">Hedemora-Norrhyttan</option>
+						<option value="norrhyttan">Norrhyttan-Bondhyttan</option>
+						<option value="bondhyttan">Bondhyttan-Bommansbo</option>
+						<option value="bommansbo">Bommansbo-Smedjebacken</option>
+						<option value="smedjebacken">Smedjebacken-Björsjö</option>
+						<option value="bjorsjo">Björsjö-Grängesberg</option>
+					</select>
+				</div>
 			
-			<textarea name="comment" placeholder="Meddelande"></textarea><br>
-			<button class="knapp" type="submit">
-				SKICKA 
-			  </button>
-
-		</form>
-        
-        <h2>Nyheter</h2>
+				<div id="problem">
+					<select>
+						<option value="" disabled selected>Välj problem</option>
+						<option value="tree">Nedfallet träd</option>
+						<option value="placeholder1">Placeholder1</option>
+						<option value="placeholder2">Placeholder2</option>
+						<option value="placeholder3">Placeholder3</option>
+						<option value="ovrigt">Övrigt</option>
+					</select>
+				</div>
+				
+				<!-- dropdown för val av problem,
+				annat (kolla så meddelande fylls i) -->
+				<!-- hårdkodat först, sen databas?? --> 
+				
+				<textarea name="descr" placeholder="Meddelande"></textarea><br>
+				<button class="knapp" type="submit">
+					SKICKA 
+				  </button>
+	
+			</form>
+			
+		</div>
+		
+       <?php
+			/*include 'functions.php';
+			
+			AU_Problem($rMail, $rName, $descr, $probChoice); */
+		?>
+		
        
-		<?php test(); ?>
+       
 		
 		
-		
-		hdhfldsfls df dsf
-		
-		
-		dsfjdsfdsöfdjs 
-		databas?dsfjdsf
     
     
 	<!--

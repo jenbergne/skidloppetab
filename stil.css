@@ -3,7 +3,7 @@ header{	position:fixed;
 		top: 0px; 
 		background-color:white;
 		width:100%;
-		height:150px;
+		height:110px;
 		box-shadow:0px 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 		z-index: 1; 
 		}
@@ -46,7 +46,7 @@ header img{padding-left:12px;}
 
 .meny:hover{background-color: #ccc; }
 
-#logga {height: 140px;
+#logga {height: 100px;
 position:relative;
 		top: 5px;}
 
@@ -92,10 +92,12 @@ background-color:white;
 
 
 /* ---------------------------------------------------Startsida --------------------------------------------------*/ 
-main{	width: 100%;
+main{	width: 90%;
+		
 		margin-top:200px; 
 		margin-bottom: 30px;
-		min-height: 700px; 
+		min-height: 700px;
+		margin: 5%; 
 		}
 		
 #start {margin-top: 200px; }
@@ -114,15 +116,81 @@ main{	width: 100%;
 .framsida {width:100%;
 box-shadow:0px 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
-
-
 		
 
 
 body {	margin:0;
-		font-family:'Raleway', sans-serif;}
+		font-family:'Raleway', sans-serif;
 		
+}
+		
+#kartaindex {
+	width: 100%;
+}
 
+#left, #right {
+	
+	
+	
+	margin: 2%; 
+}
+
+#left {
+	float: left;
+	width: 45%; 
+}
+
+#right, #nyheter {
+	float: right;
+	width: 45%;
+	min-height: 500px; 
+}
+
+
+form {
+	width: 55%;
+	margin: 2%; 
+}
+
+#clear {clear: both; }
+
+#tabellstracka td, #tabellstracka th {
+	border: solid transparent;
+	text-align: center;
+	height: 30px;
+}
+
+
+#tabellstracka tr:nth-child(even) {
+	background-color: lightgrey;
+}
+
+#tabellstracka tr:hover{background-color:grey;
+	
+}
+
+#tabellstracka{border-collapse: seperate;
+	border-spacing: 0;
+	border: 1px groove;
+	border-radius: 5px;
+	
+	}
+	
+#tabellstracka th{background: grey;
+	color: white;
+	
+}
+
+
+td{padding: 10px;}
+
+#nyheter{border: 1px solid;
+	text-align: center;}
+	
+	
+#kalender{width: 60%;}
+
+#tabellnyheter{width: 100%;}
 
 
 			
@@ -142,14 +210,17 @@ input, textarea{width: 90%;
 	}
 	
 
+	
+
 button {	
-	width: 80%; 
+	width: 90%; 
 	height: 50px;
 	font-size: 16px;
 	background-color: black; 
 	color: white; 
-	border: 0; 
-	margin:5px;}
+	border: 0;
+	margin-top: 5px; 
+	}
 
 button:hover {
 	background-color: #ccc; 
@@ -170,4 +241,45 @@ textarea {height: 80px; }
 }
 
 
+/*---------------------------------------------------------------------------------------------------------------*/
 
+
+
+.scroll{ font-weight: bold;
+	border: 3px solid darkgrey;
+	border-radius: 5px;
+	
+	background-color: gray;
+	color: white;
+	
+  }
+  
+  
+#stracka select{  border: 1;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 10px;
+   width: 25%;
+   margin-top: 20px;
+   }
+   
+#problem select{  border: 1;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 10px;
+   width: 25%;
+   margin-top: 20px;}
+   
+   
+.minbutton{border: 1px solid darkgrey;
+	border-radius: 10px;
+	height: 50px;
+	width: 90px;
+	font-size: 14px;
+	background-color: darkgrey;
+	font-weight: bold;
+	box-shadow: 2px 2px 5px #888888;
+	}
+	
+
+form {}
