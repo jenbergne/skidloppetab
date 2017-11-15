@@ -1,4 +1,4 @@
-<?php/*
+<?php
 $servername = "wwwlab.iit.his.se";
 $username = "sqllab";
 $password = "Tomten2009";
@@ -35,7 +35,7 @@ catch(PDOException $e){
 
 
 
-*/
+
 
 ?>
 
