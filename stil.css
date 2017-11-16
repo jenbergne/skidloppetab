@@ -1,4 +1,6 @@
 /* -------------------------------------------Header -------------------------------------------*/ 
+
+
 header{	position:fixed;
 		top: 0px; 
 		background-color:white;
@@ -98,9 +100,11 @@ main{	width: 90%;
 		min-height: 700px;
 		margin: 5%;
 		position: absolute;
+
 		}
 		
-#start {margin-top: 200px; }
+#start {margin-top: 200px;
+ }
 
 
 
@@ -127,10 +131,10 @@ body {	margin:0;
 #kartaindex {
 	width: 100%;
 }
-
+/*
 #left, #right {
 	
-	
+
 	
 	margin: 2%; 
 }
@@ -144,7 +148,7 @@ body {	margin:0;
 	float: right;
 	width: 45%;
 	min-height: 500px; 
-}
+}*/
 
 
 form {
@@ -152,7 +156,7 @@ form {
 	margin: 2%; 
 }
 
-#clear {clear: both; }
+
 
 #tabellstracka td, #tabellstracka th {
 	border: solid transparent;
@@ -173,6 +177,9 @@ form {
 	border: 1px groove;
 	border-radius: 5px;
 	word-wrap: break-word;
+	width: 700px; 
+	table-layout: fixed; 
+	font-size: 80%;
 	
 	}
 	
@@ -182,7 +189,7 @@ form {
 }
 
 
-td{padding: 5px;
+td{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	word-wrap: break-word;}
@@ -199,12 +206,13 @@ td{padding: 5px;
 			
 /*-------------------------------------------- Kontakt ------------------------------------------------*/ 
 .flex {
-	
+			
 	display: flex; 
 	display: inline-block; 
-	width: 400px; 
-	margin: 10px; 
-
+	width: 700px; 
+	margin: 10px;
+	border: 1px solid black; 
+	
 }
 
 input, textarea{width: 90%;
@@ -254,6 +262,7 @@ textarea {height: 80px; }
 	
 	background-color: gray;
 	color: white;
+	width: 100%; 
 	
   }
   
@@ -277,7 +286,7 @@ textarea {height: 80px; }
    
 .minbutton{border: 1px solid darkgrey;
 	border-radius: 10px;
-	height: 50px;
+	height: 30px;
 	width: 90px;
 	font-size: 14px;
 	background-color: darkgrey;
@@ -286,9 +295,7 @@ textarea {height: 80px; }
 	}
 	
 
-form {}
 
-table{table-layout: fixed;
-}
+
 
 

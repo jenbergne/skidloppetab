@@ -1,7 +1,9 @@
-     <h2>Under förhandling</h2>
+   
+<div class="flex">
+
+   <h2>Under förhandling</h2>
     <table id="tabellstracka">
 		<tr>
-			<th>ID</th>
 			<th>					
 				<select class="scroll">
 					<option>Delsträcka</option>
@@ -11,7 +13,7 @@
 			</th>
 			<th>					
 				<select class="scroll">
-					<option>Underentreprenör</option>
+					<option>UE</option>
 					<option>Jonas Heed</option>
 					<option>Underentreprenör 2</option>
 				</select>
@@ -31,7 +33,6 @@
 			<th>Ändra</th>
 		</tr>
 		<tr>
-			<td>001</td>
 			<td>1</td>
 			<td>Jonas Heed</td>
 			<td>171120-171124</td>
@@ -48,7 +49,6 @@
  <h2>Arbetsordrar</h2>
     <table id="tabellstracka">
 		<tr>
-			<th>ID</th>
 			<th>					
 				<select class="scroll">
 					<option>Delsträcka</option>
@@ -58,7 +58,7 @@
 			</th>
 			<th>					
 				<select class="scroll">
-					<option>Underentreprenör</option>
+					<option>UE</option>
 					<option>Jonas Heed</option>
 					<option>Underentreprenör 2</option>
 				</select>
@@ -83,7 +83,6 @@
 			<th>Ändra</th>	
 		</tr>
 		<tr>
-			<td>001</td>
 			<td>1</td>
 			<td>Jonas Heed</td>
 			<td>2017-11-01</td>
@@ -94,7 +93,6 @@
 			<td><button class="minbutton">Ändra</button></td>
 		</tr>
 		<tr>
-			<td>001</td>
 			<td>1</td>
 			<td>Jonas Heed</td>
 			<td>2017-11-01</td>
@@ -105,7 +103,6 @@
 			<td><button class="minbutton">Ändra</button></td>
 		</tr>	
 		<tr>
-			<td>001</td>
 			<td>1</td>
 			<td>Jonas Heed</td>
 			<td>2017-11-01</td>
@@ -116,7 +113,7 @@
 			<td><button class="minbutton">Ändra</button></td>
 		</tr>
 	</table>
-	
+	</div>
 	
     <!-- Genererad tabell med alla arbetsordrar, kunna sortera på färdiga, pågående, planerade, under förhandling osv.
     Knappar bredvid varje arbetsorder Radera (med varning), Uppdatera (med kommentarsfunktion),
@@ -128,7 +125,7 @@
     
     
     -->
-    
+    <div class="flex">
     <h3>Ny arbetsorder</h3>
     
     		<form action="kontakt.php" method="post">
@@ -151,7 +148,7 @@
 			  </button>
 
 		</form>
-            
+    </div>     
        <!-- <h2>Historik</h2>-->
 
 <!--            

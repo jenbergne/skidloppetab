@@ -3,13 +3,13 @@
 <main id="start">
     <h1>Vy för Arenachef</h1>
 	
-	<div id="left">
+	<div class="flex">
 		
 		 <img src="images/BilderKartor3.jpg" alt="Karta" id="kartaindex">
 		<!-- bild på karta med klick? -->
 		<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
 		
-		  <h2>Inskickade åtgärdspunkter</h2>
+		 <h2>Inskickade åtgärdspunkter</h2>
 
    <!-- Ny arbetsorder med info redan ifylld från inskickad åtgärdspunkt? -->
 		
@@ -55,11 +55,11 @@
 		</table>
 		
 	</div>
-	<div id="right">
+
 		<?php include 'arbetsorder.php';?>
-	</div>
-	<div id="clear"></div>
-	<div id="left">
+
+
+	<div class="flex">
 		    
 		<h2>Uppdatera nyhetsflöde</h2>
 		 <!--(under flik - delge info?)-->
@@ -85,7 +85,7 @@
 
 		</form>
 	</div>
-	<div id="right">
+	<div class="flex">
 	
 		<h2>Öppna/stäng delsträckor</h2>
 			<form action="kontakt.php" method="post">
@@ -109,22 +109,23 @@
 		<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
 		
 	</div>
-	<div id="clear"></div>
+
 
 		
 	<!-- olika flikar/sidor, nu allt på samma -> sen horisontellt. -->
 
    <!--<h2>Statistik</h2>-->
-   <div id="left">
+<div class="flex">
 	<h2>Historik</h2>
 	<img src="images/kalender.png" alt="kalender" id="kalender"/>
    </div>
-   <div id="right">
+   <div class="flex">
    <?php include 'arenachefue.php';?>
    </div>
-   <div id="clear"></div>
+
   <!--  <h2>Väderprognos</h2>-->
-    
+  
+
 </main>
 
 <!-- flera sidor, all info samma sida? -->
