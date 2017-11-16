@@ -2,21 +2,46 @@ drop database KapishAB;
 create database KapishAB;
 use KapishAB;
 
+CREATE TABLE orter(
+
+
+	oOrt VARCHAR(30),
+    oStatus VARCHAR (15),
+    oInfo TINYTEXT, #TINYTEXT limiterar texten till ca 255 tecken
+    oDate date,
+    
+	PRIMARY KEY (oOrt)
+
+)engine=innodb;
+
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Hedemora-Norrhyttan', 	'Öppen', '', '');
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Norrhyttan-Bondhyttan', 	'Öppen', '', '');
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bondhyttan-Bomannbo', 	'Öppen', '', '');
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bomannbo-Smedjebacken', 	'Stängd', 		'Översvämmat spår', '2018-01-14');
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Smedjebacken-Björsjö', 	'Under arbete', 'Träd över stigen', '2017-12-21');
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Björsjö-Grängesberg', 	'öppen', '', '');
+
+
+
+
 CREATE TABLE report( #DELSTRÄCKA!
 
-	#rID INT auto_increment,
+	rID INT auto_increment,
     rMail VARCHAR(30),
     rName VARCHAR(30), # "R" i Rname står för report
     rDescr TINYTEXT, #Beskriving om var problemet skedde #Tinytext limiterar tecknen till max 255. 
     probChoice VARCHAR(30), #Problemval
-	rOrt VARCHAR(20),
+	rOrt VARCHAR(30),
     
-	PRIMARY KEY (rMail)
+    FOREIGN KEY (rOrt) REFERENCES orter(oOrt),    
+	PRIMARY KEY (rID)
+    
     
 )engine=innodb;
 
-insert into report (rMail, rName, rDescr, probChoice, rOrt) value ('mail@mail.com', 'Kurt', 'Död björn ligger på spåret', '', '');
+INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('mail@mail.com', 'Kurt', 'Död björn ligger på spåret', '', 'Hedemora-Norrhyttan');
 
+SELECT rMail AS Mail, rName AS Namn, rDescr AS Beskrivning, probChoice AS Problembeskrivning, rOrt AS Ort FROM report;
 
 CREATE TABLE news(
 	
@@ -79,10 +104,10 @@ INSERT INTO anv (aPnr) VALUE ('199403023634');
 
 CREATE TABLE UndEntArb(
 
-	aPnr CHAR(12),
+	uPnr CHAR(12),
 	woID INT auto_increment, #WordingOrderID
     
-    FOREIGN KEY(aPnr) REFERENCES anv(pnr),
+    FOREIGN KEY(uPnr) REFERENCES anv(aPnr),
     FOREIGN KEY(woID) REFERENCES workOrder(wWorkOrderID)
 
 )engine=innodb;    
@@ -93,30 +118,13 @@ CREATE TABLE inaccessible(
 	iStart date,
     iEnd date,
 
-	FOREIGN KEY(ipnr) REFERENCES anv(pnr)
+	FOREIGN KEY(ipnr) REFERENCES anv(aPnr)
 
 )engine=innodb;
 
 INSERT INTO inaccessible (iPnr, iStart, iEnd) VALUE ('199403023634','2017-06-15','2017-06-15');
 
-CREATE TABLE orter(
 
-	oID INT (1),
-	oOrt VARCHAR(20),
-    oStatus VARCHAR (15),
-    oInfo TINYTEXT, #TINYTEXT limiterar texten till ca 255 tecken
-    oDate date,
-    
-	PRIMARY KEY (oID)
-
-)engine=innodb;
-
-INSERT INTO orter (oID, oOrt, oStatus, oInfo, oDate) VALUE ('1', 'Hedemora', 	'Öppen', '', '');
-INSERT INTO orter (oID, oOrt, oStatus, oInfo, oDate) VALUE ('2', 'Norrhyttan', 	'Öppen', '', '');
-INSERT INTO orter (oID, oOrt, oStatus, oInfo, oDate) VALUE ('3', 'Bondhyttan', 	'Öppen', '', '');
-INSERT INTO orter (oID, oOrt, oStatus, oInfo, oDate) VALUE ('4', 'Bomannbo', 	'Stängd', 'Översvämmat spår', '2018-01-14');
-INSERT INTO orter (oID, oOrt, oStatus, oInfo, oDate) VALUE ('5', 'Smedjebacken', 'Under arbete', 'Träd över stigen', '2017-12-21');
-INSERT INTO orter (oID, oOrt, oStatus, oInfo, oDate) VALUE ('6', 'Björsjö', 'öppen', '', '');
 
 
 
