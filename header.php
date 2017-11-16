@@ -32,12 +32,10 @@
 	<nav id="headerright">
 		<div class="meny"><a href="admin.php">ADMIN</a></div>
 
-		<div class="meny"><a href="kontakt.php"> KONTAKT</a></div>
+		<!--<div class="meny"><a href="kontakt.php"> KONTAKT</a></div>-->
 	</nav>
 	
 </header>
-
-
 
 <!-- 
 

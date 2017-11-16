@@ -93,11 +93,11 @@ background-color:white;
 
 /* ---------------------------------------------------Startsida --------------------------------------------------*/ 
 main{	width: 90%;
-		
 		margin-top:200px; 
 		margin-bottom: 30px;
 		min-height: 700px;
-		margin: 5%; 
+		margin: 5%;
+		position: absolute;
 		}
 		
 #start {margin-top: 200px; }
@@ -157,7 +157,6 @@ form {
 #tabellstracka td, #tabellstracka th {
 	border: solid transparent;
 	text-align: center;
-	height: 30px;
 }
 
 
@@ -173,6 +172,7 @@ form {
 	border-spacing: 0;
 	border: 1px groove;
 	border-radius: 5px;
+	word-wrap: break-word;
 	
 	}
 	
@@ -182,7 +182,10 @@ form {
 }
 
 
-td{padding: 10px;}
+td{padding: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;}
 
 #nyheter{border: 1px solid;
 	text-align: center;}
@@ -208,20 +211,6 @@ input, textarea{width: 90%;
 	padding: 10px;
 	margin-top: 20px; 
 	}
-	
-#stracka select{  border: 1;
-   font-size: 20px;
-   font-weight: bold;
-   padding: 10px;
-   width: 25%;
-   margin-top: 20px;}
-   
-#problem select{  border: 1;
-   font-size: 20px;
-   font-weight: bold;
-   padding: 10px;
-   width: 25%;
-   margin-top: 20px;}
 	
 
 	
@@ -269,11 +258,12 @@ textarea {height: 80px; }
   }
   
   
+  
 #stracka select{  border: 1;
    font-size: 20px;
    font-weight: bold;
    padding: 10px;
-   width: 25%;
+   width: 30%;
    margin-top: 20px;
    }
    
@@ -281,7 +271,7 @@ textarea {height: 80px; }
    font-size: 20px;
    font-weight: bold;
    padding: 10px;
-   width: 25%;
+   width: 30%;
    margin-top: 20px;}
    
    
@@ -297,3 +287,8 @@ textarea {height: 80px; }
 	
 
 form {}
+
+table{table-layout: fixed;
+}
+
+
