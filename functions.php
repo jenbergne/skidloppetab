@@ -74,13 +74,52 @@ function AC_showTable_AUProblem($rMail, $rName){
 			}
 		echo "</table>";
 	}
-}
-
-
-
 
 
 // ------------------------------------------------------------------------------------------
+
+function AC_update_news($nDateStart, $nDateEnd, $article, $nHeader, $nOrt){
+		global $conn;
+		global $servername;
+		global $username;
+		global $password;
+		
+		echo "Rubrik: ".$nHeader."<br>"; 
+		echo "Sträcka: ".$nOrt."<br>";
+		echo "Starttid: ".$nDateStart."<br>";
+		echo "Sluttid: ".$nDateEnd."<br>";
+		echo "Beskrivning: ".$article."<br>";
+		
+		//Rubrik=nHeader, delsträcka=nOrt, startTid, slutTid, beskrivning=article
+		
+		
+		$querystring='INSERT INTO news (nDateStart, nDateEnd, article, nHeader, nOrt) 
+					  values (:nDateStart,:nDateEnd,:article,:nHeader,:nOrt);';
+		$stmt = $conn->prepare($querystring);
+		$stmt->bindValue(':nDateStart', $nDateStart, PDO::PARAM_STR);
+		$stmt->bindParam(':nDateEnd', $nDateEnd, PDO::PARAM_STR);
+		$stmt->bindParam(':article', $article, PDO::PARAM_STR);
+		$stmt->bindParam(':nHeader', $nHeader, PDO::PARAM_STR);
+		$stmt->bindParam(':nOrt', $nOrt, PDO::PARAM_STR);
+		$stmt->execute();
+		
+		//För att testa att det görs en insert
+		echo "<table>";
+		foreach($conn->query( 'SELECT * FROM news;' ) as $row){
+			echo "<tr>";
+			echo "<td>".$row['nHeader']."</td>";      
+			echo "<td>".$row['article']."</td>"; 
+			echo "<td>".$row['nDateStart']."</td>";      
+			echo "<td>".$row['nDateEnd']."</td>";			
+			echo "</tr>";
+		}
+		echo "</table>";
+		
+	
+}
+
+// ------------------------------------------------------------------------------------------
+}
 catch(PDOException $e){
     echo "Connection failed: " . $e->getMessage();
 }

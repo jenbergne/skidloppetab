@@ -68,22 +68,49 @@
 		Öppna/stäng delsträcka osv. 
 		--> 
 		<!-- ska karta automatiskt uppdateras? val att uppdatera karta? --> 
-	    <form action="kontakt.php" method="post">
+	    <form action="arenachef.php" method="post">
 
-			<input type="text" name="rubrik" placeholder="Rubrik">
+			<input type="text" name="nHeader" placeholder="Rubrik">
 			
-			<input type="tel" name="del"  placeholder="Delsträcka"> <!-- dropdown/klick på karta -->
+			<input list="nOrt" name="nOrt">
+					<datalist id="nOrt">
+						<option value="Hedemora-Norrhyttan">
+						<option value="Norrhyttan-Bondhyttan">
+						<option value="Bondhyttan-Bommansbo">
+						<option value="Bommansbo-Smedjebacken">
+						<option value="Smedjebacken-Björsjö">
+						<option value="Björsjö-Grängesberg">
+					</datalist>
 			
-			<input type="date" name="start" placeholder="Startdatum">
+			<input type="date" name="nDateStart" placeholder="Startdatum">
 			
-			<input type="date" name="slut" placeholder="Slutdatum">
+			<input type="date" name="nDateEnd" placeholder="Slutdatum">
 			
-			<textarea name="comment" placeholder="Beskrivning"></textarea><br>
+			<input type="text" name="article"  placeholder="Beskrivning"><br>
+			
 			<button class="knapp" type="submit">
 				SKICKA 
 			  </button>
 
 		</form>
+		<?php
+		//Måste alltid inkludera funktioner.php enligt internet
+		include 'functions.php';
+		
+		//Skapar variabler av inmatningen i formuläret
+		$nHeader = $_POST["nHeader"];
+		$nOrt = $_POST["nOrt"];
+		$nDateStart = $_POST["nDateStart"];
+		$nDateEnd = $_POST["nDateEnd"];
+		$article = $_POST["article"];
+
+		echo "Bajs";
+		//Skickar in variablerna i funktionen AU_Problem
+		if(isset($_POST['nHeader'])){
+		AC_update_news($nDateStart, $nDateEnd, $article, $nHeader, $nOrt); 
+	
+		}
+	?>
 	</div>
 	<div class="flex">
 	
@@ -108,8 +135,10 @@
 		<!-- bild på karta med klick? -->
 		<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
 		
+		
+		
 	</div>
-
+	
 
 		
 	<!-- olika flikar/sidor, nu allt på samma -> sen horisontellt. -->
