@@ -41,7 +41,7 @@ CREATE TABLE report( #DELSTRÄCKA!
 
 INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('mail@Tmail.com', 'Kurt Lindeman', 'Död björn ligger på spåret', '', 'Hedemora-Norrhyttan');
 INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('Mejl@Tmail.com', 'Bert Lindeman', 'TRÄDÖVERVÄEGNHURGÖRMANMELLANSLAG', '', 'Smedjebacken-Björsjö');
-INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('min_mail@Tmail.com', 'Bo Lindeman', 'Spång är rutten, snälla byt ut', '', 'Bomansbo-Smedjebacken');
+INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('min_mail@Tmail.com', 'Bo Lindeman', 'Spång är rutten, snälla byt ut', '', 'Bommansbo-Smedjebacken');
 
 SELECT rMail AS Mail, rName AS Namn, rDescr AS Beskrivning, probChoice AS ' ' , rOrt AS Ort FROM report;
 
@@ -58,9 +58,9 @@ CREATE TABLE news(
     
 )engine=innodb;
 
-INSERT INTO news(nDate, article, nHeader, nOrt) VALUE ('2018-01-14', 'Tyvärr är sträckan mellan Bomansbo-Smedjebacken översvämmad och frusen. Beträd på egen risk!', 'Avstängd', 'Bomansbo-Smedjebacken'); 
-INSERT INTO news(nDate, article, nHeader, nOrt) VALUE ('2017-12-23', 'Julmarknad på anläggningen i Hedemora', '', ''); 
-INSERT INTO news(nDate, article, nHeader, nOrt) VALUE ('2017-11-16', 'Ek ligger över stigen vid Smedjebacken, var försiktig', 'Under arbete', 'Smedjebacken-Björsjö'); 
+INSERT INTO news(nStartDate, nEndDate, article, nHeader, nOrt) VALUE ('2018-01-14','2018-01-14', 'Tyvärr är sträckan mellan Bomansbo-Smedjebacken översvämmad och frusen. Beträd på egen risk!', 'Avstängd', 'Bomansbo-Smedjebacken'); 
+INSERT INTO news(nStartDate, nEndDate, article, nHeader, nOrt) VALUE ('2017-12-23','2017-12-23', 'Julmarknad på anläggningen i Hedemora', '', ''); 
+INSERT INTO news(nStartDate, nEndDate, article, nHeader, nOrt) VALUE ('2017-11-16','2017-11-16', 'Ek ligger över stigen vid Smedjebacken, var försiktig', 'Under arbete', 'Smedjebacken-Björsjö'); 
 
 
     #SELECT * from news;
