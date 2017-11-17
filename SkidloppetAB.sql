@@ -16,8 +16,8 @@ CREATE TABLE orter(
 
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Hedemora-Norrhyttan', 	'Öppen', '', '');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Norrhyttan-Bondhyttan', 	'Öppen', '', '');
-INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bondhyttan-Bomansbo', 	'Öppen', '', '');
-INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bomansbo-Smedjebacken', 	'Stängd', 		'Översvämmat spår', '2018-01-14');
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bondhyttan-Bommansbo', 	'Öppen', '', '');
+INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bommansbo-Smedjebacken', 	'Stängd', 		'Översvämmat spår', '2018-01-14');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Smedjebacken-Björsjö', 	'Under arbete', 'Träd över stigen', '2017-12-21');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Björsjö-Grängesberg', 	'öppen', '', '');
 
@@ -48,7 +48,8 @@ SELECT rMail AS Mail, rName AS Namn, rDescr AS Beskrivning, probChoice AS ' ' , 
 CREATE TABLE news(
 	
     nID INT auto_increment,
-    nDate DATE,
+    nStartDate date,
+    nEndDate date,
     article TINYTEXT,
     nHeader VARCHAR(20),
     nOrt VARCHAR(30), #etapp
