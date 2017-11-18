@@ -61,7 +61,7 @@
 
 	<div class="flex">
 		    
-		<h2>Uppdatera nyhetsflöde</h2>
+		<h2>Uppdatera nyhetsflödeQQQ</h2>
 		 <!--(under flik - delge info?)-->
 		
 		<!-- snabbknappar med olika info? 
@@ -82,9 +82,9 @@
 						<option value="Björsjö-Grängesberg">
 					</datalist>
 			
-			<input type="date" name="nDateStart" placeholder="Startdatum">
+			<input type="date" name="nStartDate" placeholder="Startdatum">
 			
-			<input type="date" name="nDateEnd" placeholder="Slutdatum">
+			<input type="date" name="nEndDate" placeholder="Slutdatum">
 			
 			<input type="text" name="article"  placeholder="Beskrivning"><br>
 			
@@ -100,14 +100,14 @@
 		//Skapar variabler av inmatningen i formuläret
 		$nHeader = $_POST["nHeader"];
 		$nOrt = $_POST["nOrt"];
-		$nDateStart = $_POST["nDateStart"];
-		$nDateEnd = $_POST["nDateEnd"];
+		$nStartDate = $_POST["nStartDate"];
+		$nEndDate = $_POST["nEndDate"];
 		$article = $_POST["article"];
 
 		echo "Bajs";
 		//Skickar in variablerna i funktionen AU_Problem
 		if(isset($_POST['nHeader'])){
-		AC_update_news($nDateStart, $nDateEnd, $article, $nHeader, $nOrt); 
+		AC_update_news($nStartDate, $nEndDate, $article, $nHeader, $nOrt); 
 	
 		}
 	?>

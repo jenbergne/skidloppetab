@@ -78,7 +78,7 @@ function AC_showTable_AUProblem($rMail, $rName){
 
 // ------------------------------------------------------------------------------------------
 
-function AC_update_news($nDateStart, $nDateEnd, $article, $nHeader, $nOrt){
+function AC_update_news($nStartDate, $nEndDate, $article, $nHeader, $nOrt){
 		global $conn;
 		global $servername;
 		global $username;
@@ -86,18 +86,18 @@ function AC_update_news($nDateStart, $nDateEnd, $article, $nHeader, $nOrt){
 		
 		echo "Rubrik: ".$nHeader."<br>"; 
 		echo "Sträcka: ".$nOrt."<br>";
-		echo "Starttid: ".$nDateStart."<br>";
-		echo "Sluttid: ".$nDateEnd."<br>";
+		echo "Starttid: ".$nStartDate."<br>";
+		echo "Sluttid: ".$nEndDate."<br>";
 		echo "Beskrivning: ".$article."<br>";
 		
 		//Rubrik=nHeader, delsträcka=nOrt, startTid, slutTid, beskrivning=article
 		
 		
-		$querystring='INSERT INTO news (nDateStart, nDateEnd, article, nHeader, nOrt) 
-					  values (:nDateStart,:nDateEnd,:article,:nHeader,:nOrt);';
+		$querystring='INSERT INTO news (nStartDate, nEndDate, article, nHeader, nOrt) 
+					  values (:nStartDate,:nEndDate,:article,:nHeader,:nOrt);';
 		$stmt = $conn->prepare($querystring);
-		$stmt->bindValue(':nDateStart', $nDateStart, PDO::PARAM_STR);
-		$stmt->bindParam(':nDateEnd', $nDateEnd, PDO::PARAM_STR);
+		$stmt->bindValue(':nStartDate', $nStartDate, PDO::PARAM_STR);
+		$stmt->bindParam(':nEndDate', $nEndDate, PDO::PARAM_STR);
 		$stmt->bindParam(':article', $article, PDO::PARAM_STR);
 		$stmt->bindParam(':nHeader', $nHeader, PDO::PARAM_STR);
 		$stmt->bindParam(':nOrt', $nOrt, PDO::PARAM_STR);
@@ -109,8 +109,8 @@ function AC_update_news($nDateStart, $nDateEnd, $article, $nHeader, $nOrt){
 			echo "<tr>";
 			echo "<td>".$row['nHeader']."</td>";      
 			echo "<td>".$row['article']."</td>"; 
-			echo "<td>".$row['nDateStart']."</td>";      
-			echo "<td>".$row['nDateEnd']."</td>";			
+			echo "<td>".$row['nStartDate']."</td>";      
+			echo "<td>".$row['nEndDate']."</td>";			
 			echo "</tr>";
 		}
 		echo "</table>";
