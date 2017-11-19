@@ -5,55 +5,24 @@
 	
 	<div class="flex">
 		
-		 <img src="images/BilderKartor3.jpg" alt="Karta" id="kartaindex">
+		<img src="images/BilderKartor3.jpg" alt="Karta" id="kartaindex">
 		<!-- bild på karta med klick? -->
 		<!-- Fråga : vill du även skicka detta i nyhetsflödet? -> automatgenererat meddelande i nyhetsflöde -->  
+			
+		<h2>Inskickade åtgärdspunkter</h2>
+		<!-- Hur löser vi raderaknappen? -->
 		
-		 <h2>Inskickade åtgärdspunkter</h2>
+		<?php
+		include 'functions.php';
+		AC_view_AUProblem(); 
+		?>
+		
+		
+		
+		
 
-   <!-- Ny arbetsorder med info redan ifylld från inskickad åtgärdspunkt? -->
-		
-		<table id="tabellstracka">
-			<tr>
-				<th>
-					<select class="scroll">
-						<option>Sträcka</option>
-						<option>Hedemora-Norrhyttan</option>
-						<option>Norrhyttan-Bondhyttan</option>
-					</select>
-				</th>
-				<th>Problem</th>
-				<th>Meddelande</th>
-				<th>Namn</th>
-				<th>E-post</th>
-				<th>Radera</th>
-			</tr>
-			<tr>
-				<td>Hedemora-Norrhyttan</td>
-				<td>Nedfallet träd</td>
-				<td>Ett fallet träd vid sträckans start.</td>
-				<td>Anna Andersson</td>
-				<td>exempelmail@exempel.com</td>
-				<td><button class="minbutton">Radera</button></td>
-			</tr>
-			<tr>
-				<td>Hedemora-Norrhyttan</td>
-				<td>Nedfallet träd</td>
-				<td>Ett fallet träd vid sträckans start.</td>
-				<td>Anna Andersson</td>
-				<td>exempelmail@exempel.com</td>
-				<td><button class="minbutton">Radera</button></td>
-			</tr>
-			<tr>
-				<td>Hedemora-Norrhyttan</td>
-				<td>Nedfallet träd</td>
-				<td>Ett fallet träd vid sträckans start.</td>
-				<td>Anna Andersson</td>
-				<td>exempelmail@exempel.com</td>
-				<td><button class="minbutton">Radera</button></td>
-			</tr>
-		</table>
-		
+		<!-- Ny arbetsorder med info redan ifylld från inskickad åtgärdspunkt? -->
+			
 	</div>
 
 		<?php include 'arbetsorder.php';?>
@@ -61,7 +30,7 @@
 
 	<div class="flex">
 		    
-		<h2>Uppdatera nyhetsflödeQQQ</h2>
+		<h2>Uppdatera nyhetsflöde</h2>
 		 <!--(under flik - delge info?)-->
 		
 		<!-- snabbknappar med olika info? 
@@ -94,8 +63,6 @@
 
 		</form>
 		<?php
-		//Måste alltid inkludera funktioner.php enligt internet
-		include 'functions.php';
 		
 		//Skapar variabler av inmatningen i formuläret
 		$nHeader = $_POST["nHeader"];
@@ -104,7 +71,7 @@
 		$nEndDate = $_POST["nEndDate"];
 		$article = $_POST["article"];
 
-		echo "Bajs";
+		
 		//Skickar in variablerna i funktionen AU_Problem
 		if(isset($_POST['nHeader'])){
 		AC_update_news($nStartDate, $nEndDate, $article, $nHeader, $nOrt); 
@@ -149,7 +116,9 @@
 	<img src="images/kalender.png" alt="kalender" id="kalender"/>
    </div>
    <div class="flex">
-   <?php include 'arenachefue.php';?>
+   <!--<?php include 'arenachefue.php';?>-->
+    <h2>Underentreprenörer</h2>
+   <?php AU_view_UE(); ?>
    </div>
 
   <!--  <h2>Väderprognos</h2>-->

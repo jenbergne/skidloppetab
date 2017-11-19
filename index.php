@@ -35,19 +35,10 @@
 	
 	<div id="nyheter">
 		<h2>Nyheter</h2>
-		<table id="tabellnyheter">
-			<tr>
-			<th>Tävling</th>
-			</tr>
-			<tr>
-			<td>2017-11-15 - 2017-11-20</td>
-			</tr>
-			<tr>
-				<td>
-					Tävling pågår. 
-				</td>
-			</tr>
-		</table>
+		<?php
+		include 'functions.php';
+		AU_view_news(); 
+		?>
 	</div>
     
 	<div id="clear"></div>
@@ -112,7 +103,7 @@
 		
        <?php
 			//Måste alltid inkludera funktioner.php enligt internet
-			include 'functions.php' ;
+			
 			
 			//Skickar in variablerna i funktionen AU_Problem
 			//Tar bort onödig felmeddelande med if(isset...)
