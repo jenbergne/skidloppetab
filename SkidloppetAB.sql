@@ -32,6 +32,7 @@ CREATE TABLE report( #DELSTRÄCKA!
     rDescr TINYTEXT, #Beskriving om var problemet skedde #Tinytext limiterar tecknen till max 255. 
     probChoice VARCHAR(30), #Problemval
 	rOrt VARCHAR(30),
+    rDate date,
     
     FOREIGN KEY (rOrt) REFERENCES orter(oOrt),    
 	PRIMARY KEY (rID)
@@ -39,17 +40,25 @@ CREATE TABLE report( #DELSTRÄCKA!
     
 )engine=innodb;
 
-INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('mail@Tmail.com', 'Kurt Lindeman', 'Död björn ligger på spåret', '', 'Hedemora-Norrhyttan');
-INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('Mejl@Tmail.com', 'Bert Lindeman', 'TRÄDÖVERVÄEGNHURGÖRMANMELLANSLAG', '', 'Smedjebacken-Björsjö');
-INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) VALUE ('min_mail@Tmail.com', 'Bo Lindeman', 'Spång är rutten, snälla byt ut', '', 'Bommansbo-Smedjebacken');
+INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt, rDate) VALUE ('mail@Tmail.com', 'Kurt Lindeman', 'Död björn ligger på spåret', '', 'Hedemora-Norrhyttan','2008-01-12');
+INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt, rDate) VALUE ('Mejl@Tmail.com', 'Bert Lindeman', 'TRÄDÖVERVÄEGNHURGÖRMANMELLANSLAG', '', 'Smedjebacken-Björsjö','2017-12-12');
+INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt, rDate) VALUE ('min_mail@Tmail.com', 'Bo Lindeman', 'Spång är rutten, snälla byt ut', '', 'Bommansbo-Smedjebacken','2017-12-13');
 
-SELECT rMail AS Mail, rName AS Namn, rDescr AS Beskrivning, probChoice AS ' ' , rOrt AS Ort FROM report;
+DELIMITER //
+	CREATE TRIGGER reporttrigger BEFORE INSERT ON report
+	FOR EACH ROW 
+	SET NEW.rDate = NOW()
+//
+ DELIMITER ;
+
+
+
+#SELECT rMail AS Mail, rName AS Namn, rDescr AS Beskrivning, probChoice AS ' ' , rOrt AS Ort FROM report;
 
 CREATE TABLE news(
 	
     nID INT auto_increment,
-    nStartDate date,
-    nEndDate date,
+    nDate date, 
     article TINYTEXT,
     nHeader VARCHAR(20),
     nOrt VARCHAR(30), #etapp
@@ -58,9 +67,21 @@ CREATE TABLE news(
     
 )engine=innodb;
 
-INSERT INTO news(nStartDate, nEndDate, article, nHeader, nOrt) VALUE ('2018-01-14','2018-01-14', 'Tyvärr är sträckan mellan Bomansbo-Smedjebacken översvämmad och frusen. Beträd på egen risk!', 'Avstängd', 'Bomansbo-Smedjebacken'); 
-INSERT INTO news(nStartDate, nEndDate, article, nHeader, nOrt) VALUE ('2017-12-23','2017-12-23', 'Julmarknad på anläggningen i Hedemora', '', ''); 
-INSERT INTO news(nStartDate, nEndDate, article, nHeader, nOrt) VALUE ('2017-11-16','2017-11-16', 'Ek ligger över stigen vid Smedjebacken, var försiktig', 'Under arbete', 'Smedjebacken-Björsjö'); 
+INSERT INTO news( nDate, article, nHeader, nOrt) VALUE ( '2017-06-06', 'Tyvärr är sträckan mellan Bomansbo-Smedjebacken översvämmad och frusen. Beträd på egen risk!', 'Avstängd', 'Bomansbo-Smedjebacken'); 
+INSERT INTO news( nDate, article, nHeader, nOrt) VALUE ('2017-06-07','Julmarknad på anläggningen i Hedemora', '', ''); 
+INSERT INTO news( nDate,article,nHeader, nOrt) VALUE ( '2017-06-08','Ek ligger över stigen vid Smedjebacken, var försiktig', 'Under arbete', 'Smedjebacken-Björsjö'); 
+
+DELIMITER //
+	CREATE TRIGGER newstrigger BEFORE INSERT ON  news
+	FOR EACH ROW 
+	SET NEW.nDate = NOW()
+//
+ DELIMITER ;
+
+
+
+SELECT * from news;
+
 
 
     #SELECT * from news;
@@ -85,6 +106,7 @@ CREATE TABLE workOrder( #arbetsorder
 	wWorkOrderID INT auto_increment, 
 	wStartDate DATE,
 	wEndDate DATE,
+    
     wTyp INT(1),  #1 = Under förhandling / 2 = Pågående / 3 = Genomförd
     
     WdNr INT(2), #Delsträckenummer
@@ -115,8 +137,8 @@ CREATE TABLE anv( #Användare
 )engine=innodb;    
 
 #Underentreprenärer
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640101-0001', 'qwerty1', 'S_Ekman',	'Sture Ekman', 'sekman_64@Tmail.com', 'Ekmannagatan 1', '0760101010', '1');
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640102-0002', 'qwerty2', 'Bror.Andersson', 'Bröderna Andersson', 'b.andersson2@Tmail.com', 'Torp 1', '0760202020','1');
+INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640101-0001', 'qwerty1', 'S_Ekman',	'Sture Ekman', 'sekman_64@Tmail.com', 'Ekmannagatan 1', '076-0101010', '1');
+INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640102-0002', 'qwerty2', 'Bror.Andersson', 'Bröderna Andersson', 'b.andersson2@Tmail.com', 'Torp 1', '076-0202020','1');
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640103-0003', 'qwerty3', 'SJ.Persson', 'Siv & Jan Persson', 'Personnarna@Tmail.com', 'Gårdsby 13', '0760303030', '1');
 
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640104-0004', 'qwerty4', 'J.Hed', 'Jonas Hed', 'hed_jonas@Tmail.com', 'Heden 3b', '0760404040', '1');
@@ -154,14 +176,15 @@ CREATE TABLE inaccessible(
     iPnr CHAR(13),
 	iStart date,
     iEnd date,
+    iText tinytext, #255 tecken
 
 	FOREIGN KEY(ipnr) REFERENCES anv(aPnr)
 
 )engine=innodb;
 
-INSERT INTO inaccessible (iPnr, iStart, iEnd) VALUE ('19640101-0001','2017-24-24','2018-01-02');
-INSERT INTO inaccessible (iPnr, iStart, iEnd) VALUE ('19640102-0002','2018-04-04','2018-04-06');
-INSERT INTO inaccessible (iPnr, iStart, iEnd) VALUE ('19640103-0003','2018-06-21','2018-08-30');
+INSERT INTO inaccessible (iPnr, iStart, iEnd, iText) VALUE ('19640101-0001','2017-24-24','2018-01-02', 'Julledig');
+INSERT INTO inaccessible (iPnr, iStart, iEnd, iText) VALUE ('19640102-0002','2018-04-04','2018-04-06', 'Således kan slutledning dras att undertecknad icke kan utföra abete under utsatt tid');
+INSERT INTO inaccessible (iPnr, iStart, iEnd, iText) VALUE ('19640103-0003','2018-06-21','2018-08-30', 'jaknintejobbadåe');
 
 
 
