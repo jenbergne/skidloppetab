@@ -4,7 +4,7 @@ $username = "sqllab";
 $password = "Tomten2009";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=KapishAB", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=KapishAB;charset=utf8", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	echo "Connected successfully<br>"; 	
@@ -19,6 +19,7 @@ try {
 		global $servername;
 		global $username;
 		global $password;
+		global $rDate;
 		
 		echo "Ditt namn är: ".$rName."<br>"; 
 		echo "Din mail är: ".$rMail."<br>";
@@ -27,14 +28,15 @@ try {
 		echo "Din rOrt är: ".$rOrt."<br>";
 		
 
-		$querystring='INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt) 
-					  values (:rMail,:rName,:rDescr,:probChoice,:rOrt);';
+		$querystring='INSERT INTO report (rMail, rName, rDescr, probChoice, rOrt, rDate) 
+					  values (:rMail,:rName,:rDescr,:probChoice,:rOrt,:rDate);';
 		$stmt = $conn->prepare($querystring);
 		$stmt->bindValue(':rMail', $rMail, PDO::PARAM_STR);
 		$stmt->bindParam(':rName', $rName, PDO::PARAM_STR);
 		$stmt->bindParam(':rDescr', $rDescr, PDO::PARAM_STR);
 		$stmt->bindParam(':probChoice', $probChoice, PDO::PARAM_STR);
 		$stmt->bindParam(':rOrt', $rOrt, PDO::PARAM_STR);
+		$stmt->bindParam(':rDate', $rOrt, PDO::PARAM_STR);
 		$stmt->execute();
 		
 		//Ta bort tester	
@@ -51,27 +53,27 @@ try {
 
 // ------------------------------------------------------------------------------------------
 
-function AC_update_news($nStartDate, $nEndDate, $article, $nHeader, $nOrt){
+function AC_update_news($article, $nHeader, $nOrt){
 		global $conn;
 		global $servername;
 		global $username;
 		global $password;
+		global $nDate;
 		
 		echo "Rubrik: ".$nHeader."<br>"; 
 		echo "Sträcka: ".$nOrt."<br>";
-		echo "Starttid: ".$nStartDate."<br>";
-		echo "Sluttid: ".$nEndDate."<br>";
 		echo "Beskrivning: ".$article."<br>";
+		echo "datum: ".$nDate."<br>";
 		
 		
-		$querystring='INSERT INTO news (nStartDate, nEndDate, article, nHeader, nOrt) 
-					  values (:nStartDate,:nEndDate,:article,:nHeader,:nOrt);';
+		$querystring='INSERT INTO news (nDate, article, nHeader, nOrt) 
+					  values (:nDate, :article,:nHeader,:nOrt);';
 		$stmt = $conn->prepare($querystring);
-		$stmt->bindValue(':nStartDate', $nStartDate, PDO::PARAM_STR);
-		$stmt->bindParam(':nEndDate', $nEndDate, PDO::PARAM_STR);
+		
 		$stmt->bindParam(':article', $article, PDO::PARAM_STR);
 		$stmt->bindParam(':nHeader', $nHeader, PDO::PARAM_STR);
 		$stmt->bindParam(':nOrt', $nOrt, PDO::PARAM_STR);
+		$stmt->bindParam(':nDate', $nDate, PDO::PARAM_STR);
 		$stmt->execute();
 		
 		//För att testa att det görs en insert
@@ -80,8 +82,7 @@ function AC_update_news($nStartDate, $nEndDate, $article, $nHeader, $nOrt){
 			echo "<tr>";
 			echo "<td>".$row['nHeader']."</td>";      
 			echo "<td>".$row['article']."</td>"; 
-			echo "<td>".$row['nStartDate']."</td>";      
-			echo "<td>".$row['nEndDate']."</td>";			
+			echo "<td>".$row['nDate']."</td>";      		
 			echo "</tr>";
 		}
 		echo "</table>";
@@ -97,7 +98,7 @@ function XXX(){
 		global $username;
 		global $password;
 		
-		echo "Du har tillkallat den hemliga funktionen";
+		echo "Du har tillkallat den hemliga funktionen ;)";
 		//Öppna och Stängda delsträckor insert i databas, finns ingen tabell?
 	
 }
@@ -118,15 +119,21 @@ function AC_update_workOrder(){
 		WdNr INT(2), #Delsträckenummer
 		PRIMARY KEY (wWorkOrderID)
 		*/
+		
+		//Delsträcka nr?
+		//Akut? attribut i databas
+		//Beskrivning på hemsida men ej i databas
+		
+		
 		echo "Rubrik: ".$nHeader."<br>"; 
 		echo "Sträcka: ".$nOrt."<br>";
-		echo "Starttid: ".$nStartDate."<br>";
-		echo "Sluttid: ".$nEndDate."<br>";
+		echo "Starttid: ".$wStartDate."<br>";
+		echo "Sluttid: ".$wEndDate."<br>";
 		echo "Beskrivning: ".$article."<br>";
 		
 		
-		$querystring='INSERT INTO news (wStartDate, wEndDate, article, nHeader, nOrt) 
-					  values (:nStartDate,:nEndDate,:article,:nHeader,:nOrt);';
+		$querystring='INSERT INTO workOrder (wStartDate, wEndDate, wTyp, nHeader, nOrt) 
+					  values (:wStartDate,:wEndDate,:article,:nHeader,:nOrt);';
 		$stmt = $conn->prepare($querystring);
 		$stmt->bindValue(':nStartDate', $nStartDate, PDO::PARAM_STR);
 		$stmt->bindParam(':nEndDate', $nEndDate, PDO::PARAM_STR);
@@ -137,7 +144,7 @@ function AC_update_workOrder(){
 		
 		//För att testa att det görs en insert
 		echo "<table>";
-		foreach($conn->query( 'SELECT * FROM news;' ) as $row){
+		foreach($conn->query( 'SELECT * FROM workOrder;' ) as $row){
 			echo "<tr>";
 			echo "<td>".$row['nHeader']."</td>";      
 			echo "<td>".$row['article']."</td>"; 
@@ -164,8 +171,8 @@ function AU_view_news(){
 			echo "<tr>";
 				echo "<td style='background-color:#ABC1AE;'> Rubrik: </td>";
 				echo "<td style='background-color:#ABC1AE;'> Artikel: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Start datum: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Slut datum: </td>";
+				echo "<td style='background-color:#ABC1AE;'> Datum: </td>";
+				
 			echo "</tr>";
 			
 		//För att testa att det görs en insert
@@ -174,8 +181,7 @@ function AU_view_news(){
 			echo "<tr>";
 			echo "<td>".$row['nHeader']."</td>";      
 			echo "<td>".$row['article']."</td>"; 
-			echo "<td>".$row['nStartDate']."</td>";      
-			echo "<td>".$row['nEndDate']."</td>";			
+			echo "<td>".$row['nDate']."</td>";      
 			echo "</tr>";
 		}
 		echo "</table>";
@@ -200,6 +206,7 @@ function AC_view_AUProblem(){
 				echo "<td style='background-color:#ABC1AE;'> Beskrivning: </td>";
 				echo "<td style='background-color:#ABC1AE;'> Förval problem: </td>";
 				echo "<td style='background-color:#ABC1AE;'> Ort: </td>";
+				echo "<td style='background-color:#ABC1AE;'> Datum: </td>";
 			echo "</tr>";
 			
 			 
@@ -211,6 +218,7 @@ function AC_view_AUProblem(){
 				echo "<td>".$row['rDescr']."</td>";      
 				echo "<td>".$row['probChoice']."</td>";
 				echo "<td>".$row['rOrt']."</td>";
+				echo "<td>".$row['rDate']."</td>";
 				echo "</tr>";
 			}
 		echo "</table>";
@@ -254,7 +262,7 @@ function AU_view_UE(){
 				echo "<td>".$row['aNamn']."</td>";   
 				echo "<td>".$row['aMail']."</td>";      
 				echo "<td>".$row['aAdress']."</td>";
-				echo "<td>".$row['aTel']."</td>";
+				echo "<td> +46 ".$row['aTel']."</td>";
 				//echo "<td>".$row['Delsträcka']."</td>";                         <------ Behöver läggas till i databas
 				echo "</tr>";
 			}
