@@ -51,9 +51,8 @@
 						<option value="Björsjö-Grängesberg">
 					</datalist>
 			
-			<input type="date" name="nStartDate" placeholder="Startdatum">
 			
-			<input type="date" name="nEndDate" placeholder="Slutdatum">
+			<!--<input type="date" name="nDate" placeholder="Datum"> --> 
 			
 			<input type="text" name="article"  placeholder="Beskrivning"><br>
 			
@@ -63,19 +62,13 @@
 
 		</form>
 		<?php
-		
-		//Skapar variabler av inmatningen i formuläret
-		$nHeader = $_POST["nHeader"];
-		$nOrt = $_POST["nOrt"];
-		$nStartDate = $_POST["nStartDate"];
-		$nEndDate = $_POST["nEndDate"];
-		$article = $_POST["article"];
 
-		
 		//Skickar in variablerna i funktionen AU_Problem
 		if(isset($_POST['nHeader'])){
-		AC_update_news($nStartDate, $nEndDate, $article, $nHeader, $nOrt); 
-	
+			$nHeader = $_POST["nHeader"];
+			$nOrt = $_POST["nOrt"];
+			$article = $_POST["article"];
+			AC_update_news($article, $nHeader, $nOrt);
 		}
 	?>
 	</div>
