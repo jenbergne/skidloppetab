@@ -1,12 +1,16 @@
-   
-<div class="ao">
+<?php include 'header.php'; ?>
+
+<main id="start">
+
+<?php include 'arenachefmeny.php'; ?>   
+<!--<div class="ao">
 
  <h2>Arbetsordrar</h2>
     <table id="tabellstracka">
 		<tr>
 			<th>					
 				<select class="scroll">
-					<option>Delsträcka</option>
+					<option>DelstrÃ¤cka</option>
 					<option>1</option>
 					<option>2</option>
 				</select>
@@ -15,7 +19,7 @@
 				<select class="scroll">
 					<option>UE</option>
 					<option>Jonas Heed</option>
-					<option>Underentreprenör 2</option>
+					<option>UnderentreprenÃ¶r 2</option>
 				</select>
 			</th>
 			<th>Startdatum</th>
@@ -114,7 +118,7 @@
 
 	</table>
 	</div>
-	</div>
+	</div> -->
 	
     <!-- Genererad tabell med alla arbetsordrar, kunna sortera på färdiga, pågående, planerade, under förhandling osv.
     Knappar bredvid varje arbetsorder Radera (med varning), Uppdatera (med kommentarsfunktion),
@@ -131,11 +135,11 @@
     
     		<form action="kontakt.php" method="post">
 				
-			<input type="tel" name="del"  placeholder="Delsträcka"> <!-- dropdown -->
+			<input type="tel" name="del"  placeholder="DelstrÃ¤cka"> <!-- dropdown -->
 
-			<input type="text" name="underent" placeholder="Underentreprenör"> <!-- laddas in automatiskt beroende på delsträcka, dropdown -->
+			<input type="text" name="underent" placeholder="UnderentreprenÃ¶r"> <!-- laddas in automatiskt beroende på delsträcka, dropdown -->
 			
-			<!-- en dropdown för problem??? --> 
+			<!-- en dropdown fÃ¶r problem??? --> 
             
             <label><input type="checkbox" name="akut">Akut?</label>
 			
@@ -149,7 +153,11 @@
 			  </button>
 
 		</form>
-    </div>     
+    </div>    
+
+</main>	
+
+<?php include 'footer.php';?>
        <!-- <h2>Historik</h2>-->
 
 <!--            

@@ -94,11 +94,10 @@ background-color:white;
 
 
 /* ---------------------------------------------------Startsida --------------------------------------------------*/ 
-main{	width: 90%;
+main{	width: 100%;
 		margin-top:200px; 
 		margin-bottom: 30px;
 		min-height: 700px;
-		margin: 2%;
 		position: absolute;
 
 		}
@@ -158,21 +157,21 @@ form {
 
 
 
-#tabellstracka td, #tabellstracka th {
+.tabellstracka td, .tabellstracka th {
 	border: solid transparent;
 	text-align: center;
 }
 
 
-#tabellstracka tr:nth-child(even) {
+.tabellstracka tr:nth-child(even) {
 	background-color: lightgrey;
 }
 
-#tabellstracka tr:hover{background-color:grey;
+.tabellstracka tr:hover{background-color:grey;
 	
 }
 
-#tabellstracka{border-collapse: seperate;
+.tabellstracka{border-collapse: seperate;
 	border-spacing: 0;
 	border: 1px groove;
 	border-radius: 7px;
@@ -185,7 +184,7 @@ form {
 	
 	}
 	
-#tabellstracka th{background: gray;
+.tabellstracka th{background: gray;
 	color: white;
 	
 }
@@ -212,19 +211,24 @@ td{
 .flexar {
 	display: flex; 
 	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	
+
 }
 
 
 .flex {
 			
-	display: flex; 
-	display: inline-block; 
-	width: 700px; 
-	margin: 10px; 
-	border: 1px solid black; 
+	 
+	width: 600px; 
+	margin: 5px; 
+	border: 1.5px ridge; 
 	overflow-x: auto;
-	
+	height: 600px;
+	box-shadow: 5px 5px 3px #888888
 }
+
 
 input, textarea{width: 90%;
 	padding: 10px;

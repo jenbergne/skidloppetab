@@ -1,5 +1,10 @@
+<?php include 'header.php'; ?>
+
+<main id="start">
+
+<?php include 'arenachefmeny.php'; ?>   
+
  <h2>Underentreprenörer</h2>
- 
    	<table id="tabellstracka">
 			<tr>
 				<th>Personnummer</th>
@@ -23,3 +28,7 @@
 			</tr>
 		</table>
 		<button>Lägg till ny</button>
+		
+</main>
+
+<?php include 'footer.php';?>

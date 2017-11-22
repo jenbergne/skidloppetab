@@ -1,6 +1,6 @@
 <footer>
 	
-&copy Skidloppet AB 
+&copy; Skidloppet AB 
 </footer>
 
 
