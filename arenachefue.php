@@ -1,5 +1,4 @@
  <h2>Underentreprenörer</h2>
- 
    	<table id="tabellstracka">
 			<tr>
 				<th>Personnummer</th>

@@ -1,5 +1,50 @@
    
-<div class="ao">
+<div class="flex">
+
+   <h2>Under förhandling</h2>
+    <table id="tabellstracka">
+		<tr>
+			<th>					
+				<select class="scroll">
+					<option>Delsträcka</option>
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</th>
+			<th>					
+				<select class="scroll">
+					<option>UE</option>
+					<option>Jonas Heed</option>
+					<option>Underentreprenör 2</option>
+				</select>
+			</th>
+			<th>Datum</th>
+			
+			<th>					
+				<select class="scroll">
+					<option>Problem</option>
+					<option>Fallet träd</option>
+					<option>Problem2</option>
+				</select>
+			</th>
+			<th>Kommentar</th>
+					
+			<th>Acceptera</th>
+			<th>Ändra</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Jonas Heed</td>
+			<td>171120-171124</td>
+			<td>Fallet träd</td>
+			<td>Femton träd</td>
+			<td><button class="minbutton">Acceptera</button></td>
+			<td><button class="minbutton">Ändra</button></td>
+		</tr>
+
+	</table>
+	
+
 
  <h2>Arbetsordrar</h2>
     <table id="tabellstracka">
@@ -68,52 +113,6 @@
 			<td><button class="minbutton">Ändra</button></td>
 		</tr>
 	</table>
-	
-	
-	<div id="test">
-   <h2>Under förhandling</h2>
-    <table id="tabellstracka">
-		<tr>
-			<th>					
-				<select class="scroll">
-					<option>Delsträcka</option>
-					<option>1</option>
-					<option>2</option>
-				</select>
-			</th>
-			<th>					
-				<select class="scroll">
-					<option>UE</option>
-					<option>Jonas Heed</option>
-					<option>Underentreprenör 2</option>
-				</select>
-			</th>
-			<th>Datum</th>
-			
-			<th>					
-				<select class="scroll">
-					<option>Problem</option>
-					<option>Fallet träd</option>
-					<option>Problem2</option>
-				</select>
-			</th>
-			<th>Kommentar</th>
-					
-			<th>Acceptera</th>
-			<th>Ändra</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Jonas Heed</td>
-			<td>171120-171124</td>
-			<td>Fallet träd</td>
-			<td>Femton träd</td>
-			<td><button class="minbutton">Acceptera</button></td>
-			<td><button class="minbutton">Ändra</button></td>
-		</tr>
-
-	</table>
-	</div>
 	</div>
 	
     <!-- Genererad tabell med alla arbetsordrar, kunna sortera på färdiga, pågående, planerade, under förhandling osv.
