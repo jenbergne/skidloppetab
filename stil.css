@@ -299,3 +299,24 @@ textarea {height: 80px; }
 
 
 
+
+
+#nyhetpostat {border: 1px solid red;}
+
+#nyhetdate {border: 1px solid;}
+
+
+#merlink {border: 1px solid red;}
+
+#nyhetimg {border: 1px solid;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 0px;}
+	
+	
+#merlink {border: 1px solid;
+	}
+
+	
+	
