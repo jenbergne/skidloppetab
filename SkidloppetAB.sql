@@ -8,32 +8,18 @@ CREATE TABLE orter(
 	oOrt VARCHAR(30),
     oStatus VARCHAR (15),
     oInfo TINYTEXT, #TINYTEXT limiterar texten till ca 255 tecken
-<<<<<<< HEAD
     oDate date,
-=======
-    oStartDate date,
-    oEndDate date,
->>>>>>> master
     
 	PRIMARY KEY (oOrt)
 
 )engine=innodb;
 
-<<<<<<< HEAD
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Hedemora-Norrhyttan', 	'Öppen', '', '');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Norrhyttan-Bondhyttan', 	'Öppen', '', '');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bondhyttan-Bommansbo', 	'Öppen', '', '');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Bommansbo-Smedjebacken', 	'Stängd', 		'Översvämmat spår', '2018-01-14');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Smedjebacken-Björsjö', 	'Under arbete', 'Träd över stigen', '2017-12-21');
 INSERT INTO orter (oOrt, oStatus, oInfo, oDate) VALUE ('Björsjö-Grängesberg', 	'öppen', '', '');
-=======
-INSERT INTO orter (oOrt, oStatus, oInfo, oStartDate, oEndDate) VALUE ('Hedemora-Norrhyttan', 	'Öppen', '', '', '');
-INSERT INTO orter (oOrt, oStatus, oInfo, oStartDate, oEndDate) VALUE ('Norrhyttan-Bondhyttan', 	'Öppen', '', '', '');
-INSERT INTO orter (oOrt, oStatus, oInfo, oStartDate, oEndDate) VALUE ('Bondhyttan-Bommansbo', 	'Öppen', '', '', '');
-INSERT INTO orter (oOrt, oStatus, oInfo, oStartDate, oEndDate) VALUE ('Bommansbo-Smedjebacken', 	'Stängd', 		'Översvämmat spår', '2018-01-14', '2018-01-14');
-INSERT INTO orter (oOrt, oStatus, oInfo, oStartDate, oEndDate) VALUE ('Smedjebacken-Björsjö', 	'Under arbete', 'Träd över stigen', '2017-12-21', '2018-01-14');
-INSERT INTO orter (oOrt, oStatus, oInfo, oStartDate, oEndDate) VALUE ('Björsjö-Grängesberg', 	'öppen', '', '', '');
->>>>>>> master
 
 
 
@@ -94,14 +80,11 @@ DELIMITER //
 
 
 
-<<<<<<< HEAD
 SELECT * from news;
 
 
 
     #SELECT * from news;
-=======
->>>>>>> master
     
 CREATE TABLE feedback(
 
@@ -157,7 +140,6 @@ CREATE TABLE anv( #Användare
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640101-0001', 'qwerty1', 'S_Ekman',	'Sture Ekman', 'sekman_64@Tmail.com', 'Ekmannagatan 1', '076-0101010', '1');
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640102-0002', 'qwerty2', 'Bror.Andersson', 'Bröderna Andersson', 'b.andersson2@Tmail.com', 'Torp 1', '076-0202020','1');
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640103-0003', 'qwerty3', 'SJ.Persson', 'Siv & Jan Persson', 'Personnarna@Tmail.com', 'Gårdsby 13', '0760303030', '1');
-<<<<<<< HEAD
 
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640104-0004', 'qwerty4', 'J.Hed', 'Jonas Hed', 'hed_jonas@Tmail.com', 'Heden 3b', '0760404040', '1');
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640105-0005', 'qwerty5', 'OsEk', 'Oswald Ek', 'oswaldek@Tmail.com', 'Smedjebro 4', '0760505050', '1');
@@ -173,23 +155,6 @@ INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE 
 #VD
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('1900-02-02', 'veedee', 'v.D', 'Vee Dee', 'vd@skidloppet.se', 'Stigen 2', '0762222222', '3');
 
-=======
-
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640104-0004', 'qwerty4', 'J.Hed', 'Jonas Hed', 'hed_jonas@Tmail.com', 'Heden 3b', '0760404040', '1');
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640105-0005', 'qwerty5', 'OsEk', 'Oswald Ek', 'oswaldek@Tmail.com', 'Smedjebro 4', '0760505050', '1');
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640106-0006', 'qwerty6', 'Kvarn_Rune', 'Rune Kvarn', 'kvarn_rune@Tmail.com', 'Björsjöbaken 1', '0760606060', '1');
-
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640107-0007', 'qwerty7', 'IRISSAX', 'Iris Sax', 'Iris.64@Tmail.com', 'Spendrups väg 21', '0760707070', '1');
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640108-0008', 'qwerty8', 'V.ytter', 'Vidar Ytter', 'vidarytter_mail@Tmail.com', 'Inre vägen 13', '0760808080', '1');
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('19640109-0009', 'qwerty9', 'Urabn.G', 'Urabn Garv', 'UG_1964@Tmail.com', 'Grängesbergsleden 4', '0760909090', '1');
-
-#ArenaChef
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('1900-01-01', 'arenachef', 'T.Karlsson', 'Tomas Karlsson', 'tomas@skidloppet.se', 'Stigen 1', '0761111111', '2');
-
-#VD
-INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel, aTyp) VALUE ('1900-02-02', 'veedee', 'v.D', 'Vee Dee', 'vd@skidloppet.se', 'Stigen 2', '0762222222', '3');
-
->>>>>>> master
 
 #Admin
 INSERT INTO anv (aPnr, aPassw, aUsern, aNamn, aMail, aAdress, aTel) VALUE ('1900-02-03', 'admin', 'Admin', 'Admin Administratör', 'admin@skidloppet.se', 'Adminstigen 1', '0000000000');
@@ -238,127 +203,5 @@ DELIMITER ;
 #CREATE USER 'Admin'@'localhost' IDENTIFIED BY 'admin';
 #GRANT SELECT ON KapishAB.* TO Admin;
 
-<<<<<<< HEAD
-=======
-CREATE TABLE log_workOrder( #arbetsorder logtable
-
-	log_ID INT auto_increment,
-	log_operation char(3), #DEL/UP/INS
-    log_datum date, #Datum för operation
-    log_user varchar(99), #användarens ID
-	log_wWorkOrderID INT, 
-	log_wStartDate DATE,
-	log_wEndDate DATE,
-    
-    log_wTyp INT(1),  #1 = Under förhandling / 2 = Pågående / 3 = Genomförd
-    
-    log_WdNr INT(2), #Delsträckenummer
-    
-    PRIMARY KEY (log_ID)
-
-)engine=innodb;
-
-CREATE TABLE log_report( #DELSTRÄCKA! logtable
-	
-    log_ID INT auto_increment,
-    log_operation char(3), #DEL/UP/INS
-    log_datum date, #Datum för operation
-    log_user varchar(99), #användarens ID
-	log_rID INT,
-    log_rMail VARCHAR(30),
-    log_rName VARCHAR(30), # "R" i Rname står för report
-    log_rDescr TINYTEXT, #Beskriving om var problemet skedde #Tinytext limiterar tecknen till max 255. 
-    log_probChoice VARCHAR(30), #Problemval
-	log_rOrt VARCHAR(30),
-    log_rDate date,
-    
-    FOREIGN KEY (log_rOrt) REFERENCES orter(oOrt),    
-	PRIMARY KEY (log_ID)
-    
-)engine=innodb;
-
-#Trigger som automatiskt loggar uppdateringar i workOrder-tabellen
-delimiter //
-
-	CREATE TRIGGER workOrderUpdateLog before update on workOrder
-		FOR EACH ROW
-			BEGIN        
-                INSERT INTO log_workOrder (log_operation, log_datum, log_user, log_wWorkOrderID, log_wStartDate, log_wEndDate, log_wTyp, log_WdNr)
-					VALUES ("UPD", now(), user(), new.wWorkOrderID, new.wStartDate, new.wEndDate, new.wTyp, new.WdNr);
-			end;
-//
-delimiter ;
-
-#Trigger som automatiskt loggar nya insättningar i workOrder-tabellen
-delimiter //
-
-	CREATE TRIGGER workOrderInsertLog AFTER INSERT ON workOrder
-		FOR EACH ROW
-			BEGIN        
-                INSERT INTO log_workOrder (log_operation, log_datum, log_user, log_wWorkOrderID, log_wStartDate, log_wEndDate, log_wTyp, log_WdNr)
-					VALUES ("INS", now(), user(), new.wWorkOrderID, new.wStartDate, new.wEndDate, new.wTyp, new.WdNr);
-			end;
-//
-delimiter ;
-
-#Trigger som automatiskt loggar deletes i workOrder-tabellen
-delimiter //
-
-	CREATE TRIGGER workOrderDeleteLog AFTER DELETE ON workOrder
-		FOR EACH ROW
-			BEGIN        
-                INSERT INTO log_workOrder (log_operation, log_datum, log_user, log_wWorkOrderID, log_wStartDate, log_wEndDate, log_wTyp, log_WdNr)
-					VALUES ("DEL", now(), user(), old.wWorkOrderID, old.wStartDate, old.wEndDate, old.wTyp, old.WdNr);
-			end;
-//
-delimiter ;
-
-#Trigger som automatiskt loggar uppdateringar i report-tabellen
-delimiter //
-
-	CREATE TRIGGER reportUpdateLog before update on report
-		FOR EACH ROW
-			BEGIN        
-                INSERT INTO log_report (log_operation, log_datum, log_user, log_rID, log_rMail, log_rName, log_rDescr, log_probChoice, log_rOrt, log_rDate)
-					VALUES ("UPD", now(), user(), new.rID, new.rMail, new.rName, new.rDescr, new.probChoice, new.rOrt, new.rDate);
-			end;
-//
-delimiter ;
-
-#Trigger som automatiskt loggar nya insättningar i report-tabellen
-delimiter //
-
-	CREATE TRIGGER reportInsertLog AFTER INSERT ON report
-		FOR EACH ROW
-			begin
-				
-				
-				
-                insert into log_report (log_operation, log_datum, log_user, log_rID, log_rMail, log_rName, log_rDescr, log_probChoice, log_rOrt, log_rDate)
-					VALUES ("INS", now(), user(), new.rID, new.rMail, new.rName, new.rDescr, new.probChoice, new.rOrt, new.rDate);
-			
-            end;
-            
-		
-//
-delimiter ;
-
-
-
-
-
-#Trigger som automatiskt loggar deletes i report-tabellen
-delimiter //
-
-	CREATE TRIGGER reportDeleteLog AFTER DELETE ON report
-		FOR EACH ROW
-			BEGIN        
-                INSERT INTO log_report (log_operation, log_datum, log_user, log_rID, log_rMail, log_rName, log_rDescr, log_probChoice, log_rOrt, log_rDate)
-					VALUES ("DEL", now(), user(), old.rID, old.rMail, old.rName, old.rDescr, old.probChoice, old.rOrt, old.rDate);
-			end;
-//
-delimiter ;
-
->>>>>>> master
 
     
