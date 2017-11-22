@@ -64,6 +64,13 @@
 			</div>
 		</div>
 	</div>-->
+	<div id="nyheter">
+		<h2>Nyheter</h2>
+		<?php
+		include 'functions.php';
+		AU_view_news(); 
+		?>
+	</div>
     
 	
 	<!-- tabell problem -->

@@ -5,7 +5,7 @@
 <?php include 'arenachefmeny.php'; ?>
 	
     <h1>Vy för Arenachef</h1>
-	<div class="flexar">
+	
 	<div class="flex">
 		
 		<img src="images/BilderKartor3.jpg" alt="Karta" id="kartaindex">
@@ -113,6 +113,9 @@
    </div>
    <div class="flex">
    <?php /* include 'arenachefue.php';*/?>
+    <h2>Underentreprenörer</h2>
+   <?php AU_view_UE(); ?>
+   <!--<?php include 'arenachefue.php';?>-->
     <h2>Underentreprenörer</h2>
    <?php AU_view_UE(); ?>
    </div>
