@@ -4,11 +4,10 @@ $username = "sqllab";
 $password = "Tomten2009";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=KapishAB2;charset=utf8", $username, $password);
     $conn = new PDO("mysql:host=$servername;dbname=KapishAB;charset=utf8", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	echo "Connected successfully<br>"; 	
+	//echo "Connected successfully<br>"; 	
 	
 // ------------------------------------------------------------------------------------------
 // ----------INSERTS-MOT-DATABAS-------------------------------------------------------------	
@@ -157,207 +156,33 @@ function AC_update_workOrder(){
 	
 	
 }
-// ------------------------------------------------------------------------------------------
-// ----------VISNING-AV-TABELLER-------------------------------------------------------------	
-// ------------------------------------------------------------------------------------------
 
-function AU_view_news(){
-		global $conn;
-		global $servername;
-		global $username;
-		global $password;
-		
-		
-		echo '<table class="tabellstracka">';
-			echo "<tr>";
-				echo "<th> Rubrik: </th>";
-				echo "<th> Artikel: </th>";
-				echo "<th> Datum: </th>";
-				
-			echo "</tr>";
-			
-		//För att testa att det görs en insert
-		
-		foreach($conn->query( 'SELECT * FROM news;' ) as $row){
-			echo "<tr>";
-			echo "<td>".$row['nHeader']."</td>";      
-			echo "<td>".$row['article']."</td>"; 
-			echo "<td>".$row['nDate']."</td>";      
-			echo "</tr>";
-		}
-		echo "</table>";
-		
-	
-}
 
 // ------------------------------------------------------------------------------------------
 
-function AC_view_AUProblem(){
-		global $conn;
-		global $servername;
-		global $username;
-		global $password;
-		
-		
-		//Hur gör vi med deleteknappen i tabellen?
-		echo "<table class='tabellstracka'>";
-			echo "<tr>";
-				/*echo "<th> Mail: </th>";
-				echo "<th> Namn: </th>";*/
-				echo "<th> Beskrivning: </th>";
-				echo "<th> Problem: </th>";
-				echo "<th> Ort: </th>";
-				echo "<th> Datum: </th>";
-			echo "</tr>";
-			
-			 
-			
-			foreach($conn->query( 'SELECT * FROM report;' ) as $row){
-				echo "<tr>";
-				/*echo "<td>".$row['rMail']."</td>";      
-				echo "<td>".$row['rName']."</td>";   */
-				echo "<td>".$row['rDescr']."</td>";      
-				echo "<td>".$row['probChoice']."</td>";
-				echo "<td>".$row['rOrt']."</td>";
-				echo "<td>".$row['rDate']."</td>";
-				echo "</tr>";
-			}
-		echo "</table>";
-}
-
-// ------------------------------------------------------------------------------------------
-
-function AU_view_UE(){
+function AC_update_map(){
 		global $conn;
 		global $servername;
 		global $username;
 		global $password;
 		
 		/*
-		aPnr CHAR(13),
-		aPassw VARCHAR(20),
-		aUsern VARCHAR(20),
-		aNamn VARCHAR(20),
-		aMail VARCHAR(20),
-		aAdress VARCHAR(30),
-		aTel INT(10),
-		aTyp INT(1), #Hur tänkte vi här?
-		*/
-			
-		//Hur gör vi med deleteknappen/Ändra i tabellen?
-		echo "<table class='tabellstracka'>";
-			echo "<tr>";
-				echo "<th> Personnummer: </th>";
-				echo "<th> Namn: </th>";
-				echo "<th> Mail: </th>";
-				echo "<th> Adress: </th>";
-				echo "<th> Telefonnummer: </th>";
-				//echo "<td> Delsträcka: </td>";     <------ Behöver läggas till i databas
-			echo "</tr>";
-			
-			 
-			
-			foreach($conn->query( "SELECT * FROM anv where aTyp='1';" ) as $row){
-				echo "<tr>";
-				echo "<td>".$row['aPnr']."</td>";      
-				echo "<td>".$row['aNamn']."</td>";   
-				echo "<td>".$row['aMail']."</td>";      
-				echo "<td>".$row['aAdress']."</td>";
-				echo "<td> +46 ".$row['aTel']."</td>";
-				//echo "<td>".$row['Delsträcka']."</td>";                         <------ Behöver läggas till i databas
-				echo "</tr>";
-			}
-		echo "</table>";
-}
-		
-	
-
-// ------------------------------------------------------------------------------------------
-
-// Funktion för att visa arbetsordrar under förhandling. 
-function AC_view_AOp(){
-		global $conn;
-		global $servername;
-		global $username;
-		global $password;
-		
-		
-		echo "<table class='tabellstracka'>";
-			echo "<tr>";
-				echo "<th> Delsträcka: </th>";
-				echo "<th> UE: </th>";
-				echo "<th> Datum: </th>";
-				echo "<th> Kommentar: </th>";
-				echo "<th> Acceptera: </th>";
-				echo "<th> Ändra: </th>";
-			echo "</tr>";
-			
-			 
-			
-			foreach($conn->query( 'SELECT * FROM workOrder, UndEntArb, anv where workOrder.wTyp=1 and workOrder.wWorkOrderID=UndEntArb.woID and anv.aPnr=UndEntArb.uPNr;' ) as $row){
-				echo "<tr>";
-				echo "<td>".$row['WdNr']."</td>";      
-				echo "<td>".$row['aNamn']."</td>"; 
-				echo "<td>".$row['wStartDate']."-".$row['wEndDate']."</td>"; 
-				echo "<td>".$row['wComment']."</td>";      
-				echo "<td><button class='minbutton'>Acceptera</button></td>";
-				echo "<td><button class='minbutton'>Ändra</button></td>";
-				echo "</tr>";
-			}
-		echo "</table>";
-}
-
-	
-
-	
-	
-// ------------------------------------------------------------------------------------------
-}
-
-// ------------------------------------------------------------------------------------------
-
-function XXX(){
-		global $conn;
-		global $servername;
-		global $username;
-		global $password;
-		
-		echo "Du har tillkallat den hemliga funktionen ;)";
-		//Öppna och Stängda delsträckor insert i databas, finns ingen tabell?
-	
-}
-
-// ------------------------------------------------------------------------------------------
-
-function AC_update_workOrder(){
-		global $conn;
-		global $servername;
-		global $username;
-		global $password;
-		
-		/*
-		wWorkOrderID INT auto_increment, 
-		wStartDate DATE,
-		wEndDate DATE,
-		wTyp INT(1),  #1 = Under förhandling / 2 = Pågående / 3 = Genomförd
-		WdNr INT(2), #Delsträckenummer
-		PRIMARY KEY (wWorkOrderID)
+		oOrt VARCHAR(30),
+		oStatus VARCHAR (15),
+		oInfo TINYTEXT, #TINYTEXT limiterar texten till ca 255 tecken
+		oStartDate date,
+		oEndDate date,
 		*/
 		
-		//Delsträcka nr?
-		//Akut? attribut i databas
-		//Beskrivning på hemsida men ej i databas
+		echo "oOrt: ".$oOrt."<br>"; 
+		echo "oStatus: ".$oStatus."<br>";
+		echo "oInfo: ".$oInfo."<br>";
+		echo "oStartDate: ".$oStartDate."<br>";
+		echo "oEndDate: ".$oEndDate."<br>";
 		
 		
-		echo "Rubrik: ".$nHeader."<br>"; 
-		echo "Sträcka: ".$nOrt."<br>";
-		echo "Starttid: ".$wStartDate."<br>";
-		echo "Sluttid: ".$wEndDate."<br>";
-		echo "Beskrivning: ".$article."<br>";
-		
-		
-		$querystring='INSERT INTO workOrder (wStartDate, wEndDate, wTyp, nHeader, nOrt) 
-					  values (:wStartDate,:wEndDate,:article,:nHeader,:nOrt);';
+		$querystring='INSERT INTO workOrder (oOrt, wEndDate, wTyp, nHeader, nOrt) 
+					  values (:oOrt,:wEndDate,:article,:nHeader,:nOrt);';
 		$stmt = $conn->prepare($querystring);
 		$stmt->bindValue(':nStartDate', $nStartDate, PDO::PARAM_STR);
 		$stmt->bindParam(':nEndDate', $nEndDate, PDO::PARAM_STR);
@@ -391,11 +216,11 @@ function AU_view_news(){
 		global $password;
 		
 		
-		echo "<table border='1'>";
+		echo "<table class='tabellstracka'>";
 			echo "<tr>";
-				echo "<td style='background-color:#ABC1AE;'> Rubrik: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Artikel: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Datum: </td>";
+				echo "<th> Rubrik: </th>";
+				echo "<th> Artikel: </th>";
+				echo "<th> Datum: </th>";
 				
 			echo "</tr>";
 			
@@ -423,14 +248,14 @@ function AC_view_AUProblem(){
 		
 		
 		//Hur gör vi med deleteknappen i tabellen?
-		echo "<table border='1'>";
+		echo "<table class='tabellstracka'>";
 			echo "<tr>";
-				echo "<td style='background-color:#ABC1AE;'> Mail: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Namn: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Beskrivning: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Förval problem: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Ort: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Datum: </td>";
+				echo "<th> Mail: </th>";
+				echo "<th> Namn: </th>";
+				echo "<th> Beskrivning: </th>";
+				echo "<th> Förval problem: </th>";
+				echo "<th> Ort: </th>";
+				echo "<th> Datum: </th>";
 			echo "</tr>";
 			
 			 
@@ -468,14 +293,14 @@ function AU_view_UE(){
 		*/
 			
 		//Hur gör vi med deleteknappen/Ändra i tabellen?
-		echo "<table border='1'>";
+		echo "<table class='tabellstracka'>";
 			echo "<tr>";
-				echo "<td style='background-color:#ABC1AE;'> Personnummer: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Namn: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Mail: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Adress: </td>";
-				echo "<td style='background-color:#ABC1AE;'> Telefonnummer: </td>";
-				//echo "<td style='background-color:#ABC1AE;'> Delsträcka: </td>";     <------ Behöver läggas till i databas
+				echo "<th> Personnummer: </th>";
+				echo "<th> Namn: </th>";
+				echo "<th> Mail: </th>";
+				echo "<th> Adress: </th>";
+				echo "<th> Telefonnummer: </th>";
+				//echo "<th> Delsträcka: <th>";     <------ Behöver läggas till i databas
 			echo "</tr>";
 			
 			 
@@ -496,6 +321,81 @@ function AU_view_UE(){
 	
 
 
+// ------------------------------------------------------------------------------------------
+
+// Funktion för att visa arbetsordrar under förhandling. 
+function AC_view_AOp(){ //AOp = Arbetsorderpågående
+		global $conn;
+		global $servername;
+		global $username;
+		global $password;
+		
+		
+		echo "<table class='tabellstracka'>";
+			echo "<tr>";
+				echo "<th> Delsträcka: </th>";
+				echo "<th> UE: </th>";
+				echo "<th> Datum: </th>";
+				echo "<th> Kommentar: </th>";
+				echo "<th> Acceptera: </th>";
+				echo "<th> Ändra: </th>";
+			echo "</tr>";
+			
+			 
+			
+			foreach($conn->query( 'SELECT * FROM workOrder, UndEntArb, anv where workOrder.wTyp=1 and workOrder.wWorkOrderID=UndEntArb.woID and anv.aPnr=UndEntArb.uPNr;' ) as $row){
+				echo "<tr>";
+				echo "<td>".$row['WdNr']."</td>";      
+				echo "<td>".$row['aNamn']."</td>"; 
+				echo "<td>".$row['wStartDate']."-".$row['wEndDate']."</td>"; 
+				echo "<td>".$row['wComment']."</td>";      
+				echo "<td><button class='minbutton'>Acceptera</button></td>";
+				echo "<td><button class='minbutton'>Ändra</button></td>";
+				echo "</tr>";
+			}
+		echo "</table>";
+}
+
+// ------------------------------------------------------------------------------------------
+// ----------INLOGGNING SKIDLOPPET-----------------------------------------------------------	
+// ------------------------------------------------------------------------------------------
+
+function login($aUsern,$aPassw){
+		global $conn;
+		global $servername;
+		global $username;
+		global $password;
+		
+		$aTyp;
+		
+		if($aUsern = DATABASKOLL && $aPassw = DATABASKOLL)
+		{
+			echo "Inloggning lyckades";
+			if($aTyp = 1)
+			{
+				echo "Hej Underentreprenör";
+				//underent.php
+			}
+			if($aTyp = 2)
+			{
+				echo "Hej ArenaChef";
+				//arenachef.php
+			}
+			if($aTyp = 3)
+			{
+				echo "Hej VD";
+				//vd.php
+			}			
+		}
+		else
+		{
+			echo "Inloggning misslyckades";
+		}
+		
+		echo "Du har tillkallat den hemliga funktionen ;)";
+		//Öppna och Stängda delsträckor insert i databas, finns ingen tabell?
+	
+}
 // ------------------------------------------------------------------------------------------
 }
 catch(PDOException $e){
